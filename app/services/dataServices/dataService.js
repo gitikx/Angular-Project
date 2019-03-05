@@ -4,14 +4,14 @@ function dataService() {
    this.mas = [];
    this.check = function () {
       this.mas.forEach(function(element){
-         var timeCheckConclusion = (new Date() - element.time)/1000;
-         if(timeCheckConclusion < 30){
+         var timeOfExisting = (new Date() - element.time)/1000;
+         if(timeOfExisting < 30){
             element.color = "green";
          }
-         else if(timeCheckConclusion >=30 && timeCheckConclusion<=60){
+         else if(timeOfExisting >=30 && timeOfExisting<=60){
              element.color = "yellow";
          }
-         else if(timeCheckConclusion >  60){
+         else if(timeOfExisting >  60){
              element.color = "red";
          }; 
       })
