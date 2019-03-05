@@ -1,0 +1,6 @@
+<div ng-repeat="object in $ctrl.textList track by $index">
+    <div ng-style="{'background-color': object.color, 'display': 'inline-block'}"> STATUS</div> 
+    {{object.text | digitFilter}}
+    <button ng-click="$ctrl.remove($index)">Delete</button>
+</div>
+<div ng-show="!($ctrl.textList.length)">Array is empty</div>

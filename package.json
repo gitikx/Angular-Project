@@ -1,0 +1,21 @@
+{
+  "name": "angular",
+  "version": "1.0.0",
+  "description": "My first app",
+  "main": "index.js",
+  "directory": "./libs",
+  "dependencies": {
+    "angular": " 1.7.7",
+    "path": "^0.12.7",
+    "webpack": "^4.29.6"
+  },
+  "devDependencies": { 
+    "webpack-cli": "^3.2.3"
+  },
+  "scripts": {
+    "start": "http-server",
+    "build": "webpack --mode='development'"
+  },
+  "author": "gitik",
+  "license": "ISC"
+}

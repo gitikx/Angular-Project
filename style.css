@@ -1,0 +1,6 @@
+.square {
+    background-color: green;
+    width: 50px;
+    height: 25px;
+    display: inline-block;
+}
