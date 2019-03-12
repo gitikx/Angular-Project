@@ -104,7 +104,7 @@ eval("\nmodule.exports = function(app){\n   app.component(\"addStringComponent\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function(app){\n    app.component(\"stringListComponent\", {\n    templateUrl: './components/listComponent/stringList.html',\n    controller: listCtrl\n });\n function listCtrl(dataService, $interval) {\n    this.textList = dataService.mas;\n    this.remove = function (index){\n       dataService.remove(index);\n    }\n    $interval(function(){\n      dataService.check();\n   }, 1000);\n }\n}\n\n//# sourceURL=webpack:///./app/components/listComponent/stringListComponent.js?");
+eval("module.exports = function(app){\n    app.component(\"stringListComponent\", {\n    templateUrl: './components/listComponent/stringList.html',\n    controller: listCtrl,\n });\n function listCtrl(dataService, $interval) {\n    this.textList = dataService.mas;\n    this.remove = function (index){\n       dataService.remove(index);\n    }\n    $interval(function(){\n      dataService.check();\n   }, 1000);\n }\n}\n\n//# sourceURL=webpack:///./app/components/listComponent/stringListComponent.js?");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("\nmodule.exports = function(app){\n    app.filter(\"digitFilter\", digitFi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function(app){\n   app.service(\"dataService\", dataService);\nfunction dataService() {\n   this.mas = [];\n   this.check = function () {\n      this.mas.forEach(function(element){\n         var timeCheckConclusion = (new Date() - element.time)/1000;\n         if(timeCheckConclusion < 30){\n            element.color = \"green\";\n         }\n         else if(timeCheckConclusion >=30 && timeCheckConclusion<=60){\n             element.color = \"yellow\";\n         }\n         else if(timeCheckConclusion >  60){\n             element.color = \"red\";\n         }; \n      })\n   }\n   this.push = function (input) {\n      var object = {\n         text : input,\n         time : new Date(),\n         color : 'green'\n      }\n      this.mas.push(object);\n   };\n   this.remove = function (index) {\n     this.mas.splice(index, 1);\n   }\n}\n}\n\n//# sourceURL=webpack:///./app/services/dataServices/dataService.js?");
+eval("module.exports = function(app){\n   app.service(\"dataService\", dataService);\nfunction dataService() {\n   this.mas = [];\n   this.check = function () {\n      this.mas.forEach(function(element){\n         var timeOfExisting = (new Date() - element.time)/1000;\n         if(timeOfExisting < 30){\n            element.color = \"green\";\n         }\n         else if(timeOfExisting >=30 && timeOfExisting<=60){\n             element.color = \"yellow\";\n         }\n         else if(timeOfExisting >  60){\n             element.color = \"red\";\n         }; \n      })\n   }\n   this.push = function (input) {\n      var object = {\n         text : input,\n         time : new Date(),\n         color : 'green'\n      }\n      this.mas.push(object);\n   };\n   this.remove = function (index) {\n     this.mas.splice(index, 1);\n   }\n}\n}\n\n\n//# sourceURL=webpack:///./app/services/dataServices/dataService.js?");
 
 /***/ }),
 
@@ -148,7 +148,7 @@ eval("module.exports = function(app){\n   app.service(\"dataService\", dataServi
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var angular = __webpack_require__(/*! angular */ \"./node_modules/angular/index.js\");\nvar app = angular.module(\"firstApp\", []);\n__webpack_require__(/*! ./app/services/dataServices/dataService.js */ \"./app/services/dataServices/dataService.js\")(app);\n__webpack_require__(/*! ./app/components/mainComponent/mainComponent.js */ \"./app/components/mainComponent/mainComponent.js\")(app);\n__webpack_require__(/*! ./app/components/adderComponent/addListComponent.js */ \"./app/components/adderComponent/addListComponent.js\")(app);\n__webpack_require__(/*! ./app/components/listComponent/stringListComponent.js */ \"./app/components/listComponent/stringListComponent.js\")(app);\n__webpack_require__(/*! ./app/filters/digitFilter.js */ \"./app/filters/digitFilter.js\")(app);\n\n//# sourceURL=webpack:///./index.js?");
+eval("var angular = __webpack_require__(/*! angular */ \"./node_modules/angular/index.js\");\nvar app = angular.module(\"firstApp\", []);\n__webpack_require__(/*! ./app/services/dataServices/dataService */ \"./app/services/dataServices/dataService.js\")(app);\n__webpack_require__(/*! ./app/components/mainComponent/mainComponent */ \"./app/components/mainComponent/mainComponent.js\")(app);\n__webpack_require__(/*! ./app/components/adderComponent/addListComponent */ \"./app/components/adderComponent/addListComponent.js\")(app);\n__webpack_require__(/*! ./app/components/listComponent/stringListComponent */ \"./app/components/listComponent/stringListComponent.js\")(app);\n__webpack_require__(/*! ./app/filters/digitFilter */ \"./app/filters/digitFilter.js\")(app);\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 

@@ -1,7 +1,7 @@
 module.exports = function(app){
     app.component("stringListComponent", {
     templateUrl: './components/listComponent/stringList.html',
-    controller: listCtrl
+    controller: listCtrl,
  });
  function listCtrl(dataService, $interval) {
     this.textList = dataService.mas;

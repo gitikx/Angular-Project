@@ -1,0 +1,49 @@
+#outstring {
+   width: 600px;
+   height: auto;
+   overflow: hidden;
+   display: inline-block;
+   text-overflow: ellipsis;
+   text-align: left;
+}
+#divrepeat {
+   height: 500px;
+   overflow: auto;
+}
+#status {
+   height: 20px;
+   width: 20px;
+   margin-left: 0px;
+   display: inline-block;
+}
+#delbtn {
+   position: right;
+   display: inline-block;
+}
+#delbtn:hover {
+   background-color: red;
+}
+#addbtn:hover {
+   background-color: gray;
+}
+.close {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   opacity: 0.3;
+   }
+   .close:hover {
+   opacity: 1;
+   }
+   .close:before, .close:after {
+   position: absolute;
+   left: 15px;
+   content: '|';
+   background-color: #333;
+   }
+   .close:before {
+   transform: rotate(45deg);
+   }
+   .close:after {
+   transform: rotate(-45deg);
+   }
