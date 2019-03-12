@@ -9,7 +9,9 @@ module.exports = function (app) {
          dataService.remove(index);
       }
       $interval(function () {
-         dataService.check();
+         if(!dataService.redMarker){
+            dataService.check();
+         }
       }, 1000);
    }
 }

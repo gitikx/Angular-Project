@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function(app){\n   app.component(\"addStringComponent\", {\n    templateUrl: './components/adderComponent/add.html',\n    controller: addController\n });\n function addController($translate, dataService) {\n    this.lang = \"ru\";\n    this.input = \"\";\n    this.push = function (){\n       dataService.push(this.input);\n    }\n    this.changeLang = function(){\n      $translate.use(this.lang);\n    }\n }; \n}\n\n//# sourceURL=webpack:///./app/components/adderComponent/addListComponent.js?");
+eval("module.exports = function(app){\n   app.component(\"addStringComponent\", {\n    templateUrl: './components/adderComponent/add.html',\n    controller: addController\n });\n function addController($translate, dataService) {\n    this.lang = \"ru\";\n    this.input = \"\";\n    this.push = function (){\n       dataService.push(this.input);\n       dataService.redMarker = false;\n    }\n    this.changeLang = function(){\n      $translate.use(this.lang);\n    }\n }; \n}\n\n//# sourceURL=webpack:///./app/components/adderComponent/addListComponent.js?");
 
 /***/ }),
 
@@ -104,7 +104,7 @@ eval("module.exports = function(app){\n   app.component(\"addStringComponent\", 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function (app) {\n   app.component(\"stringListComponent\", {\n      templateUrl: './components/listComponent/stringList.html',\n      controller: listCtrl,\n   });\n   function listCtrl(dataService, $interval) {\n      this.textList = dataService.mas;\n      this.remove = function (index) {\n         dataService.remove(index);\n      }\n      $interval(function () {\n         dataService.check();\n      }, 1000);\n   }\n}\n\n//# sourceURL=webpack:///./app/components/listComponent/stringListComponent.js?");
+eval("module.exports = function (app) {\n   app.component(\"stringListComponent\", {\n      templateUrl: './components/listComponent/stringList.html',\n      controller: listCtrl,\n   });\n   function listCtrl(dataService, $interval) {\n      this.textList = dataService.mas;\n      this.remove = function (index) {\n         dataService.remove(index);\n      }\n      $interval(function () {\n         if(!dataService.redMarker){\n            dataService.check();\n         }\n      }, 1000);\n   }\n}\n\n//# sourceURL=webpack:///./app/components/listComponent/stringListComponent.js?");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("module.exports = function (app) {\n    app.filter(\"digitFilter\", digitFi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function (app) {\n   app.service(\"dataService\", dataService);\n   function dataService() {\n      this.mas = [];\n      this.check = function () {\n         this.mas.forEach(function (element) {\n            var timeOfExisting = (new Date() - element.time) / 1000;\n            if (timeOfExisting < 30) {\n               element.color = \"green\";\n            }\n            else if (timeOfExisting >= 30 && timeOfExisting <= 60) {\n               element.color = \"yellow\";\n            }\n            else if (timeOfExisting > 60) {\n               element.color = \"red\";\n            };\n         })\n      }\n      this.push = function (input) {\n         var object = {\n            text: input,\n            time: new Date(),\n            color: 'green'\n         }\n         this.mas.push(object);\n      };\n      this.remove = function (index) {\n         this.mas.splice(index, 1);\n      }\n   }\n}\n\n\n//# sourceURL=webpack:///./app/services/dataServices/dataService.js?");
+eval("module.exports = function (app) {\n   app.service(\"dataService\", dataService);\n   function dataService() {\n      this.redMarker = true;\n      this.mas = [];\n      this.check = function () {\n         let redMarker = true;\n         this.mas.forEach(function (element) {\n            var timeOfExisting = (new Date() - element.time) / 1000;\n            if (timeOfExisting < 30) {\n               element.color = \"green\";\n               redMarker = false;\n            }\n            else if (timeOfExisting >= 30 && timeOfExisting <= 60) {\n               element.color = \"yellow\";\n               redMarker = false;\n            }\n            else if (timeOfExisting > 60) {\n               element.color = \"red\";\n            };\n         })\n         this.redMarker = redMarker;\n         console.log(\"Cycle\");\n      }\n      this.push = function (input) {\n         var object = {\n            text: input,\n            time: new Date(),\n            color: 'green'\n         }\n         this.mas.push(object);\n      };\n      this.remove = function (index) {\n         this.mas.splice(index, 1);\n      }\n   }\n}\n\n\n//# sourceURL=webpack:///./app/services/dataServices/dataService.js?");
 
 /***/ }),
 

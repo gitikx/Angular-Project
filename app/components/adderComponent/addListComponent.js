@@ -8,6 +8,7 @@ module.exports = function(app){
     this.input = "";
     this.push = function (){
        dataService.push(this.input);
+       dataService.redMarker = false;
     }
     this.changeLang = function(){
       $translate.use(this.lang);
