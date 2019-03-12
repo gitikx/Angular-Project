@@ -1,5 +1,14 @@
 var angular = require("angular");
-var app = angular.module("firstApp", []);
+require("angular-translate");
+require("angular-translate-storage-local")
+require("angular-translate-loader-static-files");
+var app = angular.module("firstApp", ['pascalprecht.translate']);
+app.config(function ($translateProvider) {
+    $translateProvider.useStaticFilesLoader({
+        prefix: './languages/',
+        suffix: '.json'
+    }).preferredLanguage('en');
+})
 require('./app/services/dataServices/dataService')(app);
 require('./app/components/mainComponent/mainComponent')(app);
 require('./app/components/adderComponent/addListComponent')(app);

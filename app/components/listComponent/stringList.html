@@ -2,7 +2,8 @@
 <div  ng-repeat="object in $ctrl.textList track by $index">
     <div id="status" ng-style="{'background-color': object.color, 'display': 'inline-block'}" title="{{object.color}}"></div> 
     <div id="outstring" title="{{object.text}}">{{object.text | digitFilter}}</div>
-    <span class="close" ng-click="$ctrl.remove($index)"></span>
+    <img id="delete" src="./resources/delete.png" ng-click="$ctrl.remove($index)"></img>
 </div>
+<div>{{ 'title' | translate}}</div>
 <div ng-show="!($ctrl.textList.length)">Array is empty</div>
 </div>
