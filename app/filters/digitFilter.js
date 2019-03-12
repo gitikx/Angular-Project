@@ -1,13 +1,12 @@
-
-module.exports = function(app){
+module.exports = function (app) {
     app.filter("digitFilter", digitFilter);
-function digitFilter() {
-    return function (input) {
-        var string = input.replace(/[^\d]/gi, '');
-        if(string == ''){
-            return 'This string contains only symbols';
+    function digitFilter($translate) {
+        return function (input) {
+            var string = input.replace(/[^\d]/gi, '');
+            if (string == '') {
+                return $translate.instant("onlystrings");
+            }
+            return string;
         }
-        return string;
-    }
-};
+    };
 }

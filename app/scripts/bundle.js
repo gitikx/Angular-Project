@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function(app){\n   app.component(\"addStringComponent\", {\n    templateUrl: './components/adderComponent/add.html',\n    controller: addController\n });\n function addController($translate, dataService) {\n    this.lang = \"en\";\n    this.input = \"\";\n    alert($translate.instant(\"title\"));\n    this.push = function (){\n       dataService.push(this.input);\n    }\n    this.changeLang = function(){\n      $translate.use(this.lang);\n    }\n }; \n}\n\n//# sourceURL=webpack:///./app/components/adderComponent/addListComponent.js?");
+eval("module.exports = function(app){\n   app.component(\"addStringComponent\", {\n    templateUrl: './components/adderComponent/add.html',\n    controller: addController\n });\n function addController($translate, dataService) {\n    this.lang = \"ru\";\n    this.input = \"\";\n    this.push = function (){\n       dataService.push(this.input);\n    }\n    this.changeLang = function(){\n      $translate.use(this.lang);\n    }\n }; \n}\n\n//# sourceURL=webpack:///./app/components/adderComponent/addListComponent.js?");
 
 /***/ }),
 

@@ -1,13 +1,16 @@
-
 module.exports = function(app){
    app.component("addStringComponent", {
     templateUrl: './components/adderComponent/add.html',
     controller: addController
  });
- function addController(dataService) {
+ function addController($translate, dataService) {
+    this.lang = "ru";
     this.input = "";
     this.push = function (){
        dataService.push(this.input);
+    }
+    this.changeLang = function(){
+      $translate.use(this.lang);
     }
  }; 
 }

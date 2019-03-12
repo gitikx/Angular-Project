@@ -7,7 +7,7 @@ app.config(function ($translateProvider) {
     $translateProvider.useStaticFilesLoader({
         prefix: './languages/',
         suffix: '.json'
-    }).preferredLanguage('en');
+    }).preferredLanguage('ru');
 })
 require('./app/services/dataServices/dataService')(app);
 require('./app/components/mainComponent/mainComponent')(app);
