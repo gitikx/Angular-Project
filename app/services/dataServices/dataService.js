@@ -31,6 +31,7 @@ module.exports = function (app) {
                element.color = "red";
             };
          })
+         console.log("cycle");
          this.redMarker = redMarker;
       }
       /**

@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function(app){\n   app.component(\"addStringComponent\", {\n    templateUrl: './components/adderComponent/add.html',\n    controller: addController\n });\n function addController($translate, dataService) {\n    this.lang = \"ru\";\n    this.input = \"\";\n    this.push = function (){\n       dataService.push(this.input);\n       dataService.redMarker = false;\n    }\n    this.changeLang = function(){\n      $translate.use(this.lang);\n    }\n }; \n}\n\n//# sourceURL=webpack:///./app/components/adderComponent/addListComponent.js?");
+eval("module.exports = function(app){\n   /**\n    * Регистрация компонента добавления строк\n    */\n   app.component(\"addStringComponent\", {\n    templateUrl: './components/adderComponent/add.html',\n    controller: addController\n });\n   /**\n    * Конструктор контроллера\n    * \n    * @constructor\n    * @param {object} $translate - angular сервис работы с переводом текста\n    * @param {object} dataService - сервис работы с данными\n    */\n function addController($translate, dataService) {\n    this.lang = \"ru\";\n    this.input = \"\";\n    this.push = function (){\n       dataService.push(this.input);\n       dataService.redMarker = false;\n    }\n    this.changeLang = function(){\n      $translate.use(this.lang);\n    }\n }; \n}\n\n//# sourceURL=webpack:///./app/components/adderComponent/addListComponent.js?");
 
 /***/ }),
 
@@ -104,7 +104,7 @@ eval("module.exports = function(app){\n   app.component(\"addStringComponent\", 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function (app) {\n   app.component(\"stringListComponent\", {\n      templateUrl: './components/listComponent/stringList.html',\n      controller: listCtrl,\n   });\n   function listCtrl(dataService, $interval) {\n      this.textList = dataService.mas;\n      this.remove = function (index) {\n         dataService.remove(index);\n      }\n      $interval(function () {\n         if(!dataService.redMarker){\n            dataService.check();\n         }\n      }, 1000);\n   }\n}\n\n//# sourceURL=webpack:///./app/components/listComponent/stringListComponent.js?");
+eval("module.exports = function (app) {\n   /**\n    * Регистрация компонента для отображения строк.\n    */\n   app.component(\"stringListComponent\", {\n      templateUrl: './components/listComponent/stringList.html',\n      controller: listCtrl,\n   });\n   /**\n    * \n    * @param {object} dataService - сервис для работы с данными\n    * @param {*} $interval - angular сервис для работы с интервалом\n    */\n   function listCtrl(dataService, $interval) {\n      this.textList = dataService.mas;\n      this.remove = function (index) {\n         dataService.remove(index);\n      }\n      $interval(function () {\n         if(!dataService.redMarker){\n            dataService.check();\n         }\n      }, 1000);\n   }\n}\n\n//# sourceURL=webpack:///./app/components/listComponent/stringListComponent.js?");
 
 /***/ }),
 
@@ -115,7 +115,18 @@ eval("module.exports = function (app) {\n   app.component(\"stringListComponent\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function (app) {\n    app.component(\"mainComponent\", {\n        templateUrl: \"./components/mainComponent/mainComponent.html\"\n    })\n}\n\n//# sourceURL=webpack:///./app/components/mainComponent/mainComponent.js?");
+eval("module.exports = function (app) {\n    /**\n     * Компонент, содржащий компоненты добавления и отображения строк.\n     */\n    app.component(\"mainComponent\", {\n        templateUrl: \"./components/mainComponent/mainComponent.html\"\n    })\n}\n\n//# sourceURL=webpack:///./app/components/mainComponent/mainComponent.js?");
+
+/***/ }),
+
+/***/ "./app/configs/translateConfig.js":
+/*!****************************************!*\
+  !*** ./app/configs/translateConfig.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = function (app) {\n    app.config(function ($translateProvider) {\n        $translateProvider.useStaticFilesLoader({\n            prefix: './languages/',\n            suffix: '.json'\n        }).preferredLanguage('ru');\n    })\n}\n\n//# sourceURL=webpack:///./app/configs/translateConfig.js?");
 
 /***/ }),
 
@@ -126,7 +137,7 @@ eval("module.exports = function (app) {\n    app.component(\"mainComponent\", {\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function (app) {\n    app.filter(\"digitFilter\", digitFilter);\n    function digitFilter($translate) {\n        return function (input) {\n            var string = input.replace(/[^\\d]/gi, '');\n            if (string == '') {\n                return $translate.instant(\"onlystrings\");\n            }\n            return string;\n        }\n    };\n}\n\n//# sourceURL=webpack:///./app/filters/digitFilter.js?");
+eval("module.exports = function (app) {\n    /**\n     * Регистрация фильтра, удаляющего символы из строки\n     */\n    app.filter(\"digitFilter\", digitFilter);\n    /**\n     * \n     * @param {object} $translate -- angular сервис для работы с переводом текста \n     */\n    function digitFilter($translate) {\n        /**\n         * Принимает строку, убирает все символы из строки и возвращает числовую строку либо предупреждение, что в строке только символы\n         * \n         * @param {string} input - строка для форматирования\n         * @returns {string} - отформатированная строка без символов\n         */\n        return function (input) {\n            var string = input.replace(/[^\\d]/gi, '');\n            if (string == '') {\n                return $translate.instant(\"onlystrings\");\n            }\n            return string;\n        }\n    };\n}\n\n//# sourceURL=webpack:///./app/filters/digitFilter.js?");
 
 /***/ }),
 
@@ -137,7 +148,7 @@ eval("module.exports = function (app) {\n    app.filter(\"digitFilter\", digitFi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function (app) {\n   app.service(\"dataService\", dataService);\n   function dataService() {\n      this.redMarker = true;\n      this.mas = [];\n      this.check = function () {\n         let redMarker = true;\n         this.mas.forEach(function (element) {\n            var timeOfExisting = (new Date() - element.time) / 1000;\n            if (timeOfExisting < 30) {\n               element.color = \"green\";\n               redMarker = false;\n            }\n            else if (timeOfExisting >= 30 && timeOfExisting <= 60) {\n               element.color = \"yellow\";\n               redMarker = false;\n            }\n            else if (timeOfExisting > 60) {\n               element.color = \"red\";\n            };\n         })\n         this.redMarker = redMarker;\n      }\n      this.push = function (input) {\n         var object = {\n            text: input,\n            time: new Date(),\n            color: 'green'\n         }\n         this.mas.push(object);\n      };\n      this.remove = function (index) {\n         this.mas.splice(index, 1);\n      }\n   }\n}\n\n\n//# sourceURL=webpack:///./app/services/dataServices/dataService.js?");
+eval("module.exports = function (app) {\n   /**\n    * Регистрация сервиса dataService\n    * dataService предназначен для хранения и обработки необходимых данных\n    */\n   app.service(\"dataService\", dataService);\n\n   /**\n    * Функция сервиса\n    * @constructor\n    */\n   function dataService() {\n      this.redMarker = true;\n      this.mas = [];\n      /**\n       * Функция проверки массива на время создания и изменение его цвета.\n       */\n      this.check = function () {\n         let redMarker = true;\n         this.mas.forEach(function (element) {\n            var timeOfExisting = (new Date() - element.time) / 1000;\n            if (timeOfExisting < 30) {\n               element.color = \"green\";\n               redMarker = false;\n            }\n            else if (timeOfExisting >= 30 && timeOfExisting <= 60) {\n               element.color = \"yellow\";\n               redMarker = false;\n            }\n            else if (timeOfExisting > 60) {\n               element.color = \"red\";\n            };\n         })\n         console.log(\"cycle\");\n         this.redMarker = redMarker;\n      }\n      /**\n       * Функция для добавления данных(обьекта) в массив. Генерирует обьект с текстом, который приходит параметром, с зеленым цветом и текущим временем.\n       * \n       * @param {string} - текст обьекта \n       */\n      this.push = function (input) {\n         var object = {\n            text: input,\n            time: new Date(),\n            color: 'green'\n         }\n         this.mas.push(object);\n      };\n      /**\n       * Функция удаления обьекта из массива по id\n       * \n       * @param {number} - id обьекта в массиве\n       */\n      this.remove = function (index) {\n         this.mas.splice(index, 1);\n      }\n   }\n}\n\n\n//# sourceURL=webpack:///./app/services/dataServices/dataService.js?");
 
 /***/ }),
 
@@ -148,7 +159,7 @@ eval("module.exports = function (app) {\n   app.service(\"dataService\", dataSer
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var angular = __webpack_require__(/*! angular */ \"./node_modules/angular/index.js\");\n__webpack_require__(/*! angular-translate */ \"./node_modules/angular-translate/dist/angular-translate.js\");\n__webpack_require__(/*! angular-translate-loader-static-files */ \"./node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js\");\nvar app = angular.module(\"firstApp\", ['pascalprecht.translate']);\napp.config(function ($translateProvider) {\n    $translateProvider.useStaticFilesLoader({\n        prefix: './languages/',\n        suffix: '.json'\n    }).preferredLanguage('ru');\n})\n__webpack_require__(/*! ./app/services/dataServices/dataService */ \"./app/services/dataServices/dataService.js\")(app);\n__webpack_require__(/*! ./app/components/mainComponent/mainComponent */ \"./app/components/mainComponent/mainComponent.js\")(app);\n__webpack_require__(/*! ./app/components/adderComponent/addListComponent */ \"./app/components/adderComponent/addListComponent.js\")(app);\n__webpack_require__(/*! ./app/components/listComponent/stringListComponent */ \"./app/components/listComponent/stringListComponent.js\")(app);\n__webpack_require__(/*! ./app/filters/digitFilter */ \"./app/filters/digitFilter.js\")(app);\n\n//# sourceURL=webpack:///./index.js?");
+eval("var angular = __webpack_require__(/*! angular */ \"./node_modules/angular/index.js\");\n__webpack_require__(/*! angular-translate */ \"./node_modules/angular-translate/dist/angular-translate.js\");\n__webpack_require__(/*! angular-translate-loader-static-files */ \"./node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js\");\nvar app = angular.module(\"firstApp\", ['pascalprecht.translate']);\n// app.config(function ($translateProvider) {\n//     $translateProvider.useStaticFilesLoader({\n//         prefix: './languages/',\n//         suffix: '.json'\n//     }).preferredLanguage('ru');\n// })\n__webpack_require__(/*! ./app/configs/translateConfig */ \"./app/configs/translateConfig.js\")(app);\n__webpack_require__(/*! ./app/services/dataServices/dataService */ \"./app/services/dataServices/dataService.js\")(app);\n__webpack_require__(/*! ./app/components/mainComponent/mainComponent */ \"./app/components/mainComponent/mainComponent.js\")(app);\n__webpack_require__(/*! ./app/components/adderComponent/addListComponent */ \"./app/components/adderComponent/addListComponent.js\")(app);\n__webpack_require__(/*! ./app/components/listComponent/stringListComponent */ \"./app/components/listComponent/stringListComponent.js\")(app);\n__webpack_require__(/*! ./app/filters/digitFilter */ \"./app/filters/digitFilter.js\")(app);\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
