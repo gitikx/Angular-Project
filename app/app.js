@@ -1,5 +1,7 @@
 //Ctrl+Shift+I Ubuntu  
 //Shift+Alt+F Windows   
 
-//lodash
-//scope and digest cycle
+//поправить локали
+//генерацию через less и подтягивать его
+//оптимизировать интервал
+//lodash использовать по максимуму

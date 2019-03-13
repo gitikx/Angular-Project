@@ -18,6 +18,10 @@ module.exports = function (app) {
       this.check = function () {
          let redMarker = true;
          this.mas.forEach(function (element) {
+            if (element.color === "red") {
+               return;
+            };
+            console.log("cycle");
             var timeOfExisting = (new Date() - element.time) / 1000;
             if (timeOfExisting < 30) {
                element.color = "green";
@@ -30,8 +34,8 @@ module.exports = function (app) {
             else if (timeOfExisting > 60) {
                element.color = "red";
             };
+
          })
-         console.log("cycle");
          this.redMarker = redMarker;
       }
       /**

@@ -1,8 +1,9 @@
 <div id="divrepeat">
-<div ng-repeat="object in $ctrl.textList track by $index">
-    <div id="status" ng-style="{'background-color': object.color, 'display': 'inline-block'}" title="{{object.color | translate}}"></div> 
-    <div id="outstring" title="{{object.text | digitFilter}}">{{object.text | digitFilter}}</div>
-    <img id="delete" src="./resources/delete.png" ng-click="$ctrl.remove($index)"></img>
-</div>
-<div ng-show="!($ctrl.textList.length)">{{'noelements' | translate}}</div>
+    <div ng-repeat="object in $ctrl.textList track by $index">
+        <div id="status" ng-style="{'background-color': object.color, 'display': 'inline-block'}"
+            title="{{object.color | translate}}"></div>
+        <div id="outstring" title="{{object.text | digitFilter}}">{{object.text | digitFilter}}</div>
+        <div id="delete" ng-click="$ctrl.remove($index)"></div>
+    </div>
+    <div ng-show="!($ctrl.textList.length)">{{'noelements' | translate}}</div>
 </div>

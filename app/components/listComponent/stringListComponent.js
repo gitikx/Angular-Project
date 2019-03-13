@@ -8,6 +8,7 @@ module.exports = function (app) {
    });
    /**
     * 
+    * 
     * @param {object} dataService - сервис для работы с данными
     * @param {*} $interval - angular сервис для работы с интервалом
     */

@@ -5,10 +5,11 @@
    overflow: hidden;
    text-overflow: ellipsis;
    text-align: left;
+   
 }
 #divrepeat {
    width: 670px;
-   height: 500px;
+   max-height: 97vh;
    overflow: auto;
 }
 #status {
@@ -20,6 +21,8 @@
    background-color: gray;
 }
 #delete {
-   height: 20px;
-   width: 20px;
+   width: 20px; /* Width of new image */
+   height: 20px; /* Height of new image */
+   display: inline-block;
+   background-image: url(./resources/delete.png);
 }
