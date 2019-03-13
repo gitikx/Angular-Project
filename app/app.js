@@ -3,6 +3,3 @@
 
 //lodash
 //scope and digest cycle
-
-//документация!!!
-

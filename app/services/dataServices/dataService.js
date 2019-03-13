@@ -1,8 +1,20 @@
 module.exports = function (app) {
+   /**
+    * Регистрация сервиса dataService
+    * dataService предназначен для хранения и обработки необходимых данных
+    */
    app.service("dataService", dataService);
+
+   /**
+    * Функция сервиса
+    * @constructor
+    */
    function dataService() {
       this.redMarker = true;
       this.mas = [];
+      /**
+       * Функция проверки массива на время создания и изменение его цвета.
+       */
       this.check = function () {
          let redMarker = true;
          this.mas.forEach(function (element) {
@@ -21,6 +33,11 @@ module.exports = function (app) {
          })
          this.redMarker = redMarker;
       }
+      /**
+       * Функция для добавления данных(обьекта) в массив. Генерирует обьект с текстом, который приходит параметром, с зеленым цветом и текущим временем.
+       * 
+       * @param {string} - текст обьекта 
+       */
       this.push = function (input) {
          var object = {
             text: input,
@@ -29,6 +46,11 @@ module.exports = function (app) {
          }
          this.mas.push(object);
       };
+      /**
+       * Функция удаления обьекта из массива по id
+       * 
+       * @param {number} - id обьекта в массиве
+       */
       this.remove = function (index) {
          this.mas.splice(index, 1);
       }

@@ -1,6 +1,5 @@
 var angular = require("angular");
 require("angular-translate");
-require("angular-translate-storage-local")
 require("angular-translate-loader-static-files");
 var app = angular.module("firstApp", ['pascalprecht.translate']);
 app.config(function ($translateProvider) {
