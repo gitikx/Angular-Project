@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function(app){\n   /**\n    * Регистрация компонента добавления строк\n    */\n   app.component(\"addStringComponent\", {\n    templateUrl: './components/adderComponent/add.html',\n    controller: addController\n });\n   /**\n    * Конструктор контроллера\n    * \n    * @constructor\n    * @param {object} $translate - angular сервис работы с переводом текста\n    * @param {object} dataService - сервис работы с данными\n    */\n function addController($translate, dataService) {\n    this.lang = \"ru\";\n    this.input = \"\";\n    this.push = function (){\n       dataService.push(this.input);\n       dataService.redMarker = false;\n    }\n    this.changeLang = function(){\n      $translate.use(this.lang);\n    }\n }; \n}\n\n//# sourceURL=webpack:///./app/components/adderComponent/addListComponent.js?");
+eval("module.exports = function(app){\n   /**\n    * Регистрация компонента добавления строк\n    */\n   app.component(\"addStringComponent\", {\n    templateUrl: './components/adderComponent/add.html',\n    controller: addController\n });\n   /**\n    * Конструктор контроллера\n    * \n    * @constructor\n    * @param {object} $translate - angular сервис работы с переводом текста\n    * @param {object} dataService - сервис работы с данными\n    */\n function addController($translate, dataService) {\n    this.lang = \"ru\";\n    this.input = \"\";\n    this.push = function (){\n       dataService.push(this.input);\n       dataService.redMarker = false;\n    }\n    this.changeLang = function(){\n      $translate.use(this.lang);\n    }\n    this.test = function(){\n      alert($translate.proposedLanguage());\n    }\n }; \n}\n\n//# sourceURL=webpack:///./app/components/adderComponent/addListComponent.js?");
 
 /***/ }),
 
@@ -141,14 +141,25 @@ eval("module.exports = function (app) {\n    /**\n     * Регистрация 
 
 /***/ }),
 
+/***/ "./app/services/dataServices sync recursive":
+/*!****************************************!*\
+  !*** ./app/services/dataServices sync ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("function webpackEmptyContext(req) {\n\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\te.code = 'MODULE_NOT_FOUND';\n\tthrow e;\n}\nwebpackEmptyContext.keys = function() { return []; };\nwebpackEmptyContext.resolve = webpackEmptyContext;\nmodule.exports = webpackEmptyContext;\nwebpackEmptyContext.id = \"./app/services/dataServices sync recursive\";\n\n//# sourceURL=webpack:///./app/services/dataServices_sync?");
+
+/***/ }),
+
 /***/ "./app/services/dataServices/dataService.js":
 /*!**************************************************!*\
   !*** ./app/services/dataServices/dataService.js ***!
   \**************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = function (app) {\n   /**\n    * Регистрация сервиса dataService\n    * dataService предназначен для хранения и обработки необходимых данных\n    */\n   app.service(\"dataService\", dataService);\n\n   /**\n    * Функция сервиса\n    * @constructor\n    */\n   function dataService() {\n      this.redMarker = true;\n      this.mas = [];\n      /**\n       * Функция проверки массива на время создания и изменение его цвета.\n       */\n      this.check = function () {\n         let redMarker = true;\n         this.mas.forEach(function (element) {\n            if (element.color === \"red\") {\n               return;\n            };\n            console.log(\"cycle\");\n            var timeOfExisting = (new Date() - element.time) / 1000;\n            if (timeOfExisting < 30) {\n               element.color = \"green\";\n               redMarker = false;\n            }\n            else if (timeOfExisting >= 30 && timeOfExisting <= 60) {\n               element.color = \"yellow\";\n               redMarker = false;\n            }\n            else if (timeOfExisting > 60) {\n               element.color = \"red\";\n            };\n\n         })\n         this.redMarker = redMarker;\n      }\n      /**\n       * Функция для добавления данных(обьекта) в массив. Генерирует обьект с текстом, который приходит параметром, с зеленым цветом и текущим временем.\n       * \n       * @param {string} - текст обьекта \n       */\n      this.push = function (input) {\n         var object = {\n            text: input,\n            time: new Date(),\n            color: 'green'\n         }\n         this.mas.push(object);\n      };\n      /**\n       * Функция удаления обьекта из массива по id\n       * \n       * @param {number} - id обьекта в массиве\n       */\n      this.remove = function (index) {\n         this.mas.splice(index, 1);\n      }\n   }\n}\n\n\n//# sourceURL=webpack:///./app/services/dataServices/dataService.js?");
+eval("module.exports = function (app) {\n   /**\n    * Регистрация сервиса dataService\n    * dataService предназначен для хранения и обработки необходимых данных\n    */\n   app.service(\"dataService\", dataService);\n\n   /**\n    * Функция сервиса\n    * @constructor\n    */\n   function dataService() {\n      this.redMarker = true;\n      this.mas = [];\n      /**\n       * Функция проверки массива на время создания и изменение его цвета.\n       */\n      this.check = function () {\n         let redMarker = true;\n         this.mas.forEach(function (element) {\n            if (element.color === \"red\") {\n               return;\n            };\n            console.log(\"cycle\");\n            var timeOfExisting = (new Date() - element.time) / 1000;\n            if (timeOfExisting < 30) {\n               element.color = \"green\";\n               redMarker = false;\n            }\n            else if (timeOfExisting >= 30 && timeOfExisting <= 60) {\n               element.color = \"yellow\";\n               redMarker = false;\n            }\n            else if (timeOfExisting > 60) {\n               element.color = \"red\";\n            };\n\n         })\n         this.redMarker = redMarker;\n      }\n      this.test = function (text){\n         var object = __webpack_require__(\"./app/services/dataServices sync recursive\")(text);\n         alert(object.title);\n      }\n      /**\n       * Функция для добавления данных(обьекта) в массив. Генерирует обьект с текстом, который приходит параметром, с зеленым цветом и текущим временем.\n       * \n       * @param {string} - текст обьекта \n       */\n      this.push = function (input) {\n         var object = {\n            text: input,\n            time: new Date(),\n            color: 'green'\n         }\n         this.mas.push(object);\n      };\n      /**\n       * Функция удаления обьекта из массива по id\n       * \n       * @param {number} - id обьекта в массиве\n       */\n      this.remove = function (index) {\n         this.mas.splice(index, 1);\n      }\n   }\n}\n\n\n//# sourceURL=webpack:///./app/services/dataServices/dataService.js?");
 
 /***/ }),
 

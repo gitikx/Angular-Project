@@ -9,7 +9,7 @@ module.exports = function (app) {
     * Функция сервиса
     * @constructor
     */
-   function dataService() {
+   function dataService($translate) {
       this.redMarker = true;
       this.mas = [];
       /**
@@ -37,6 +37,9 @@ module.exports = function (app) {
 
          })
          this.redMarker = redMarker;
+      }
+      this.test = function (){
+         console($translate.proposedLanguage());
       }
       /**
        * Функция для добавления данных(обьекта) в массив. Генерирует обьект с текстом, который приходит параметром, с зеленым цветом и текущим временем.

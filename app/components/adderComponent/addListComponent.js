@@ -23,5 +23,8 @@ module.exports = function(app){
     this.changeLang = function(){
       $translate.use(this.lang);
     }
+    this.test = function(){
+      dataService.test();
+    }
  }; 
 }
