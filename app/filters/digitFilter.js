@@ -17,7 +17,7 @@ module.exports = function (app) {
         return function (input) {
             var string = input.replace(/[^\d]/gi, '');
             if (string == '') {
-                return $translate.instant("onlystrings");
+                return "onlystrings";
             }
             return string;
         }

@@ -16,9 +16,15 @@ module.exports = function (app) {
       this.textList = dataService.mas;
       this.remove = function (index) {
          dataService.remove(index);
+         $interval.cancel(this.inter); //пример остановки интервала. Почитай пожалуйста про это.
       }
-      $interval(function () {
+      this.reset = function(index){
+         dataService.reset(index);
+         dataService.redMarker = false;
+      }
+      this.inter = $interval(function () {
          if(!dataService.redMarker){
+            console.log("interval");
             dataService.check();
          }
       }, 1000);

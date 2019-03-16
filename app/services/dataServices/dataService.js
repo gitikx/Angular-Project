@@ -34,7 +34,6 @@ module.exports = function (app) {
             else if (timeOfExisting > 60) {
                element.color = "red";
             };
-
          })
          this.redMarker = redMarker;
       }
@@ -54,6 +53,10 @@ module.exports = function (app) {
          }
          this.mas.push(object);
       };
+      this.reset = function(index){
+         this.mas[index].color = "green";
+         this.mas[index].time = new Date();
+      }
       /**
        * Функция удаления обьекта из массива по id
        * 

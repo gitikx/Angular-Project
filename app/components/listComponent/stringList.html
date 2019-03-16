@@ -2,8 +2,9 @@
     <div ng-repeat="object in $ctrl.textList track by $index">
         <div id="status" ng-style="{'background-color': object.color, 'display': 'inline-block'}"
             title="{{object.color | translate}}"></div>
-        <div id="outstring" title="{{object.text | digitFilter}}">{{object.text | digitFilter}}</div>
-        <div id="delete" ng-click="$ctrl.remove($index)"></div>
+        <div id="outstring" title="{{object.text | digitFilter | translate}}">{{object.text | digitFilter | translate}}</div>
+        <div id="reset" title="{{'reset' | translate}}" ng-click="$ctrl.reset($index)"></div>
+        <div id="delete" ng-click="$ctrl.remove($index)" title="{{'remove' | translate}}"></div>
     </div>
     <div ng-show="!($ctrl.textList.length)">{{'noelements' | translate}}</div>
 </div>

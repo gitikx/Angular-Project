@@ -5,5 +5,7 @@
     "onlystrings": "Die Zeichenfolge enthält nur Zeichen.",
     "green": "Frisch",
     "yellow": "Lain",
-    "red": "Faul"
+    "red": "Faul",
+    "remove" : "Löschen",
+    "reset" : "Zurücksetzen"
 }

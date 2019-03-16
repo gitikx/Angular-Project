@@ -8,8 +8,8 @@
    
 }
 #divrepeat {
-   width: 670px;
-   max-height: 97vh;
+   width: 700px;
+   max-height: 95vh;
    overflow: auto;
 }
 #status {
@@ -25,4 +25,14 @@
    height: 20px; /* Height of new image */
    display: inline-block;
    background-image: url(./resources/delete.png);
+}
+#reset{
+   width: 20px;
+   height: 20px;
+   display: inline-block;
+   background-image: url(./resources/reset.png);
+}
+#inputform {
+   max-height: 100vh;
+   width: 700px;
 }

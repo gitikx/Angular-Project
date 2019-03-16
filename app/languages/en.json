@@ -5,5 +5,7 @@
     "onlystrings": "String contains only symbols.",
     "green": "Fresh",
     "yellow": "Lain",
-    "red": "Rotten"
+    "red": "Rotten",
+    "remove": "Remove",
+    "reset" : "Reset"
 }
