@@ -15,7 +15,7 @@ module.exports = function (app) {
          * @returns {string} - отформатированная строка без символов
          */
         return function (input) {
-            var string = input.replace(/[^\d]/gi, '');
+            var string = _.replace(input, /[^\d]/gi, '');
             if (string == '') {
                 return "onlystrings";
             }

@@ -16,9 +16,9 @@ module.exports = function (app) {
       /**
        * Функция проверки массива на время создания и изменение его цвета.
        */
-      this.check = function(){
+      this.check = function () {
          let redMarker = true;
-         this.mas.forEach(function (element) {
+         _.forEach(this.mas, function (element) {
             if (element.color === "red") {
                return;
             };
@@ -34,7 +34,7 @@ module.exports = function (app) {
             else if (timeOfExisting > 60) {
                element.color = "red";
             };
-         })
+         });
          this.redMarker = redMarker;
       }
       this.test = function () {
