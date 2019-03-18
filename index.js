@@ -1,6 +1,7 @@
 var angular = require("angular");
 require("angular-translate");
 require("angular-translate-loader-static-files");
+require("lodash");
 var app = angular.module("firstApp", ['pascalprecht.translate']);
 require('./app/configs/translateConfig')(app);
 require('./app/services/dataServices/dataService')(app);

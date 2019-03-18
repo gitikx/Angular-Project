@@ -9,19 +9,19 @@ module.exports = function (app) {
     * Функция сервиса
     * @constructor
     */
-   function dataService($translate) {
+   function dataService($translate, $interval) {
       this.redMarker = true;
       this.mas = [];
+      this.interval;
       /**
        * Функция проверки массива на время создания и изменение его цвета.
        */
-      this.check = function () {
+      this.check = function(){
          let redMarker = true;
          this.mas.forEach(function (element) {
             if (element.color === "red") {
                return;
             };
-            console.log("cycle");
             var timeOfExisting = (new Date() - element.time) / 1000;
             if (timeOfExisting < 30) {
                element.color = "green";
@@ -37,7 +37,7 @@ module.exports = function (app) {
          })
          this.redMarker = redMarker;
       }
-      this.test = function (){
+      this.test = function () {
          console($translate.proposedLanguage());
       }
       /**
@@ -53,7 +53,7 @@ module.exports = function (app) {
          }
          this.mas.push(object);
       };
-      this.reset = function(index){
+      this.reset = function (index) {
          this.mas[index].color = "green";
          this.mas[index].time = new Date();
       }

@@ -12,21 +12,24 @@ module.exports = function (app) {
     * @param {object} dataService - сервис для работы с данными
     * @param {*} $interval - angular сервис для работы с интервалом
     */
-   function listCtrl(dataService, $interval) {
+   function listCtrl(dataService,$interval) {
       this.textList = dataService.mas;
       this.remove = function (index) {
          dataService.remove(index);
-         $interval.cancel(this.inter); //пример остановки интервала. Почитай пожалуйста про это.
       }
-      this.reset = function(index){
+      this.reset = function (index) {
          dataService.reset(index);
          dataService.redMarker = false;
-      }
-      this.inter = $interval(function () {
-         if(!dataService.redMarker){
-            console.log("interval");
-            dataService.check();
+         if (!angular.isDefined(dataService.interval)) {
+            dataService.interval = $interval(function () {
+               dataService.check();
+               if (dataService.redMarker) {
+                  $interval.cancel(dataService.interval);
+                  dataService.interval = undefined;
+               }
+               console.log("interval started");
+            }, 1000);
          }
-      }, 1000);
+      }
    }
-}
+};
