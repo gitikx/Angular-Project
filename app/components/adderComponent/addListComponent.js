@@ -10,7 +10,7 @@ module.exports = function (app) {
     * @param {object} $translate - angular сервис работы с переводом текста
     * @param {object} dataService - сервис работы с данными
     */
-   function addController(dataService, $interval, languageService) {
+   function addController(dataService,languageService) {
       this.language;
       this.languages = languageService.languages;
       this.input;

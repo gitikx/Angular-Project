@@ -10,7 +10,7 @@ module.exports = function (app) {
     * @param {object} dataService - сервис для работы с данными
     * @param {*} $interval - angular сервис для работы с интервалом
     */
-   function listCtrl(dataService,$interval) {
+   function listCtrl(dataService,) {
       this.textList = dataService.getArray();
       /**
        * Функция удаления элемента из массива по индексу.
