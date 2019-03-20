@@ -1,41 +1,31 @@
 module.exports = function (app) {
-   /**
-    * Регистрация компонента добавления строк
-    */
    app.component("addStringComponent", {
       templateUrl: './components/adderComponent/add.html',
       controller: addController
    });
    /**
-    * Конструктор контроллера
+    * Конструктор контроллера добавления новых элементов в массив.
     * 
     * @constructor
     * @param {object} $translate - angular сервис работы с переводом текста
     * @param {object} dataService - сервис работы с данными
     */
-   function addController($translate, dataService, $interval) {
-      this.lang = "ru";
-      this.input = "";
+   function addController(dataService, $interval, languageService) {
+      this.language;
+      this.languages = languageService.languages;
+      this.input;
+      /**
+       * Функция добавления элемента в массив. Добавляет элемент в массив и запускает интервал для проверки состояния обьектов, если он еще не запущен.
+       */
       this.push = function () {
+         if (typeof this.input === "undefined" || this.input.length < 3) return;
          dataService.push(this.input);
-         dataService.redMarker = false;
-         console.log(angular.isDefined(dataService.interval));
-         if (!angular.isDefined(dataService.interval)) {
-            dataService.interval = $interval(function () {
-               dataService.check();
-               if (dataService.redMarker) {
-                  $interval.cancel(dataService.interval);
-                  dataService.interval = undefined;
-               }
-               console.log("interval started");
-            }, 1000)
-         }
       }
-      this.changeLang = function () {
-         $translate.use(this.lang);
-      };
-      this.test = function () {
-         dataService.test();
-      };
+      /**
+      * Функция для изменения языка.
+      */
+      this.changeLanguage = function () {
+         languageService.changeLanguage(this.language);
+      }
    }
 };

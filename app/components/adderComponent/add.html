@@ -1,7 +1,5 @@
-<input type="text" ng-model="$ctrl.input">
+<input id="input" type="text" ng-model="$ctrl.input" maxlength="15" minlength="3">
 <button id="addbtn" ng-click="$ctrl.push()">{{'add' | translate }}</button>
-<select ng-model="$ctrl.lang" ng-change="$ctrl.changeLang()">
-    <option value="ru">Русский</option>
-    <option value="en">English</option>
-    <option value="de">Deutsch</option>
+<select ng-options="lang.title for lang in $ctrl.languages" ng-model="$ctrl.language"
+    ng-change="$ctrl.changeLanguage()">
 </select>

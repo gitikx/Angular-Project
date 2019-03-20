@@ -1,35 +1,32 @@
 module.exports = function (app) {
-   /**
-    * Регистрация компонента для отображения строк.
-    */
    app.component("stringListComponent", {
       templateUrl: './components/listComponent/stringList.html',
       controller: listCtrl,
    });
    /**
+    * Сервис для операций с элементами массива
     * 
-    * 
+    * @constructor
     * @param {object} dataService - сервис для работы с данными
     * @param {*} $interval - angular сервис для работы с интервалом
     */
    function listCtrl(dataService,$interval) {
-      this.textList = dataService.mas;
+      this.textList = dataService.getArray();
+      /**
+       * Функция удаления элемента из массива по индексу.
+       * 
+       * @param {Number} index - индекс элемента
+       */
       this.remove = function (index) {
          dataService.remove(index);
       }
+       /**
+       * Функция обновления даты создания обьекта по индексу. Вызывает интервал для проверки состояния обьектов, если он еще не запущен.
+       * 
+       * @param {Number} index - индекс элемента
+       */
       this.reset = function (index) {
          dataService.reset(index);
-         dataService.redMarker = false;
-         if (!angular.isDefined(dataService.interval)) {
-            dataService.interval = $interval(function () {
-               dataService.check();
-               if (dataService.redMarker) {
-                  $interval.cancel(dataService.interval);
-                  dataService.interval = undefined;
-               }
-               console.log("interval started");
-            }, 1000);
-         }
       }
    }
 };

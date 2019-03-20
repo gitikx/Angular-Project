@@ -3,6 +3,6 @@ module.exports = function (app) {
         $translateProvider.useStaticFilesLoader({
             prefix: './languages/',
             suffix: '.json'
-        }).preferredLanguage('ru');
+        }).preferredLanguage('ru').useSanitizeValueStrategy(null);
     })
 }

@@ -1,0 +1,12 @@
+module.exports =
+    langs = [{
+        title: "Engilsh",
+        name: "en"
+    }, {
+        title: "Русский",
+        name: "ru"
+    }, {
+        title: "Deutsch",
+        name: "de"
+    }]
+    ;

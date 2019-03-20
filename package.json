@@ -4,7 +4,7 @@
   "description": "My first app",
   "main": "index.js",
   "dependencies": {
-    "angular": " 1.7.7",
+    "angular": " 1.7.8",
     "angular-translate": "2.18.1",
     "angular-translate-loader-static-files": "2.18.1",
     "lodash": "4.17.11"
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "http-server",
-    "build": "webpack --mode='development'"
+    "build": "webpack --mode='development' -w"
   },
   "author": "gitik",
   "license": "ISC"

@@ -33,6 +33,6 @@
    background-image: url(./resources/reset.png);
 }
 #inputform {
-   max-height: 100vh;
+   height: 5vh;
    width: 700px;
 }
