@@ -1,3 +1,4 @@
+require('./app/styles/style.css');
 var angular = require("angular");
 require("angular-translate");
 require("angular-translate-loader-static-files");

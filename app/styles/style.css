@@ -24,13 +24,13 @@
    width: 20px; /* Width of new image */
    height: 20px; /* Height of new image */
    display: inline-block;
-   background-image: url(./resources/delete.png);
+   background-image: url(~./resources/delete.png);
 }
 #reset{
    width: 20px;
    height: 20px;
    display: inline-block;
-   background-image: url(./resources/reset.png);
+   background-image: url(~./resources/reset.png);
 }
 #inputform {
    height: 5vh;
