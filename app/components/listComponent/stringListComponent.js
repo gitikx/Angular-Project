@@ -17,7 +17,7 @@ module.exports = function (app) {
        * 
        * @param {Number} index - индекс элемента
        */
-      this.remove = function (index) {
+      this.remove = (index) => {
          dataService.remove(index);
       }
        /**
@@ -25,7 +25,7 @@ module.exports = function (app) {
        * 
        * @param {Number} index - индекс элемента
        */
-      this.reset = function (index) {
+      this.reset = (index) => {
          dataService.reset(index);
       }
    }

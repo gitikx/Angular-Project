@@ -3,7 +3,7 @@ module.exports = function(app){
 
     function langService($translate){
         this.languages = require('./langs');
-        this.changeLanguage = function(languageObject){
+        this.changeLanguage = (languageObject) => {
             $translate.use(languageObject.name);
             $translate.refresh(languageObject.name);
         }

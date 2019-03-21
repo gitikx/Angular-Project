@@ -13,7 +13,7 @@ module.exports = function (app) {
       let array = [];
       let interval;
       let isAllRed = true;
-      let checkColors = function () {
+      let checkColors = () => {
          let allRed = true;
          let time = new Date();
          _.forEach(array, function (element) {
@@ -32,7 +32,7 @@ module.exports = function (app) {
          });
          isAllRed = allRed;
       }
-      this.getArray = function () {
+      this.getArray = () => {
          return array;
       }
       /**
@@ -40,7 +40,7 @@ module.exports = function (app) {
        * 
        * @param {string} - текст обьекта 
        */
-      this.push = function (input) {
+      this.push = (input) => {
          var object = {
             text: input,
             time: new Date(),
@@ -52,7 +52,7 @@ module.exports = function (app) {
       /**
       * Функция сброса времени создания элемента
       */
-      this.reset = function (index) {
+      this.reset = (index) => {
          array[index].color = "green";
          array[index].time = new Date();
          start();
@@ -62,19 +62,19 @@ module.exports = function (app) {
        * 
        * @param {number} - id обьекта в массиве
        */
-      this.remove = function (index) {
+      this.remove = (index) => {
          array.splice(index, 1);
       }
       /**
        * Возвращает текущее 
        */
-      this.getRedMarker = function () {
+      this.getRedMarker = () => {
          return isAllRed;
       }
       /**
        * Функция старта интервала с функцией проверки массива
        */
-      let start = function () {
+      let start = () => {
          if (!angular.isDefined(interval)) {
             isAllRed = false;
             interval = $interval(function () {

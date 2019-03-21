@@ -17,14 +17,14 @@ module.exports = function (app) {
       /**
        * Функция добавления элемента в массив. Добавляет элемент в массив и запускает интервал для проверки состояния обьектов, если он еще не запущен.
        */
-      this.push = function () {
+      this.push = () => {
          if (typeof this.input === "undefined" || this.input.length < 3) return;
          dataService.push(this.input);
       }
       /**
       * Функция для изменения языка.
       */
-      this.changeLanguage = function () {
+      this.changeLanguage = () => {
          languageService.changeLanguage(this.language);
       }
    }
