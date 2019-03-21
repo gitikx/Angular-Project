@@ -4,7 +4,7 @@ module.exports = function (app) {
      *
      * @param {object} $translate -- angular сервис для работы с переводом текста 
      */
-    function digitFilter() {
+    function digitFilter($translate) {
         /**
          * Принимает строку, убирает все символы из строки и возвращает числовую строку либо предупреждение, что в строке только символы.
          * 
@@ -13,9 +13,6 @@ module.exports = function (app) {
          */
         return function (input) {
             var string = _.replace(input, /[^\d]/gi, '');
-            if (string == '') {
-                return "onlystrings";
-            }
             return string;
         }
     };

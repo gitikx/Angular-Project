@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function (app) {\n   app.component(\"addStringComponent\", {\n      templateUrl: './components/adderComponent/add.html',\n      controller: addController\n   });\n   /**\n    * Конструктор контроллера добавления новых элементов в массив.\n    * \n    * @constructor\n    * @param {object} $translate - angular сервис работы с переводом текста\n    * @param {object} dataService - сервис работы с данными\n    */\n   function addController(dataService,languageService) {\n      this.language;\n      this.languages = languageService.languages;\n      this.input;\n      /**\n       * Функция добавления элемента в массив. Добавляет элемент в массив и запускает интервал для проверки состояния обьектов, если он еще не запущен.\n       */\n      this.push = function () {\n         if (typeof this.input === \"undefined\" || this.input.length < 3) return;\n         dataService.push(this.input);\n      }\n      /**\n      * Функция для изменения языка.\n      */\n      this.changeLanguage = function () {\n         languageService.changeLanguage(this.language);\n      }\n   }\n};\n\n//# sourceURL=webpack:///./app/components/adderComponent/addListComponent.js?");
+eval("module.exports = function (app) {\n   app.component(\"addStringComponent\", {\n      templateUrl: './components/adderComponent/add.html',\n      controller: addController\n   });\n   /**\n    * Конструктор контроллера добавления новых элементов в массив.\n    * \n    * @constructor\n    * @param {object} $translate - angular сервис работы с переводом текста\n    * @param {object} dataService - сервис работы с данными\n    */\n   function addController(dataService,languageService, $scope) {\n      this.language;\n      this.languages = languageService.languages;\n      this.input;\n      /**\n       * Функция добавления элемента в массив. Добавляет элемент в массив и запускает интервал для проверки состояния обьектов, если он еще не запущен.\n       */\n      this.push = function () {\n         if (typeof this.input === \"undefined\" || this.input.length < 3) return;\n         dataService.push(this.input);\n      }\n      /**\n      * Функция для изменения языка.\n      */\n      this.changeLanguage = function () {\n         languageService.changeLanguage(this.language);\n      }\n   }\n};\n\n//# sourceURL=webpack:///./app/components/adderComponent/addListComponent.js?");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("module.exports = function (app) {\n    app.config(function ($translateProv
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = function (app) {\n    app.filter(\"digitFilter\", digitFilter);\n    /**\n     *\n     * @param {object} $translate -- angular сервис для работы с переводом текста \n     */\n    function digitFilter() {\n        /**\n         * Принимает строку, убирает все символы из строки и возвращает числовую строку либо предупреждение, что в строке только символы.\n         * \n         * @param {string} input - строка для форматирования\n         * @returns {string} - отформатированная строка без символов\n         */\n        return function (input) {\n            var string = _.replace(input, /[^\\d]/gi, '');\n            if (string == '') {\n                return \"onlystrings\";\n            }\n            return string;\n        }\n    };\n}\n\n//# sourceURL=webpack:///./app/filters/digitFilter.js?");
+eval("module.exports = function (app) {\n    app.filter(\"digitFilter\", digitFilter);\n    /**\n     *\n     * @param {object} $translate -- angular сервис для работы с переводом текста \n     */\n    function digitFilter($translate) {\n        /**\n         * Принимает строку, убирает все символы из строки и возвращает числовую строку либо предупреждение, что в строке только символы.\n         * \n         * @param {string} input - строка для форматирования\n         * @returns {string} - отформатированная строка без символов\n         */\n        return function (input) {\n            var string = _.replace(input, /[^\\d]/gi, '');\n            return string;\n        }\n    };\n}\n\n//# sourceURL=webpack:///./app/filters/digitFilter.js?");
 
 /***/ }),
 
@@ -170,7 +170,7 @@ eval("module.exports =\n    langs = [{\n        title: \"Engilsh\",\n        nam
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = function(app){\n    app.service(\"languageService\", langService);\n\n    function langService($translate){\n        this.languages = __webpack_require__(/*! ./langs */ \"./app/services/langs.js\");\n        this.changeLanguage = function(languageObject){\n            $translate.use(languageObject.name);\n\n        }\n    }\n}\n\n//# sourceURL=webpack:///./app/services/languageService.js?");
+eval("module.exports = function(app){\n    app.service(\"languageService\", langService);\n\n    function langService($translate){\n        this.languages = __webpack_require__(/*! ./langs */ \"./app/services/langs.js\");\n        this.changeLanguage = function(languageObject){\n            $translate.use(languageObject.name);\n            $translate.refresh(languageObject.name);\n        }\n    }\n}\n\n//# sourceURL=webpack:///./app/services/languageService.js?");
 
 /***/ }),
 
