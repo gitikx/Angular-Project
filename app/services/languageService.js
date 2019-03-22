@@ -5,7 +5,6 @@ module.exports = function(app){
         this.languages = require('./langs');
         this.changeLanguage = (languageObject) => {
             $translate.use(languageObject.name);
-            $translate.refresh(languageObject.name);
         }
     }
 }
