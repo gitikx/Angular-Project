@@ -1,8 +1,8 @@
 module.exports = function (app) {
    app.component("addStringComponent", {
       bindings: {
-         push : '&',
-         input : '='
+         push: '&',
+         input: '='
       },
       templateUrl: './components/adderComponent/add.html',
       controller: addController
@@ -11,22 +11,19 @@ module.exports = function (app) {
     * Конструктор контроллера добавления новых элементов в массив.
     * 
     * @constructor
-    * @param {object} $translate - angular сервис работы с переводом текста
-    * @param {object} dataService - сервис работы с данными
+    * @param {object} languageService - angular сервис работы с переводом текста
     */
-   function addController(languageService) {   
+   function addController(languageService) {
       this.language;
       this.languages = languageService.languages;
-      // this.input;
       /**
-       * Функция добавления элемента в массив. Добавляет элемент в массив и запускает интервал для проверки состояния обьектов, если он еще не запущен.
+       * Вызывает функцию добавления элемента в массив.
        */
-      // this.push = () => {
-      //    if (typeof this.input === "undefined" || this.input.length < 3) return;
-      //    dataService.push(this.input);
-      // }
+      this.pushEl = () => {
+         this.push();
+      }
       /**
-      * Функция для изменения языка.
+      * Функция изменения языка.
       */
       this.changeLanguage = () => {
          languageService.changeLanguage(this.language);

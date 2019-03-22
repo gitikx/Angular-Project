@@ -1,22 +1,34 @@
 module.exports = function (app) {
    app.component("stringListComponent", {
-      bindings:{
-         textlist : '<',
-         remove : '&',
-         reset : '&'
+      bindings: {
+         textlist: '<',
+         remove: '&',
+         reset: '&'
       },
       templateUrl: './components/listComponent/stringList.html',
       controller: listCtrl
    });
    /**
-    * Сервис для операций с элементами массива
+    * Регистрация контроллера для вывода обьектов.
     * 
     * @constructor
-    * @param {object} dataService - сервис для работы с данными
-    * @param {*} $interval - angular сервис для работы с интервалом
     */
-   function listCtrl(dataService) {
-      // this.textList = dataService.getArray();
-  
+   function listCtrl() {
+      /**
+      * Функция сброса таймера элемента
+      * 
+      * @param {Number} index - индекс элемента
+      */
+      this.resetEl = (index) => {
+         this.reset({ index: index });
+      }
+      /**
+       * Функция удаления элемента из массива
+       * 
+       * @param {Number} index - индекс элемента
+       */
+      this.removeEl = (index) => {
+         this.remove({ index: index });
+      }
    }
 };

@@ -6,8 +6,8 @@
             <div id="outstring" ng-switch-when="0">{{"This string contains only symbols." | translate}}</div>
             <div id="outstring" ng-switch-default>{{object.text | digitFilter}}</div>
         </span>
-        <div id="reset" title="{{'reset' | translate}}" ng-click="$ctrl.reset($index)"></div>
-        <div id="delete" ng-click="$ctrl.remove($index)" title="{{'remove' | translate}}"></div>
+        <div id="reset" title="{{'reset' | translate}}" ng-click="$ctrl.resetEl($index)"></div>
+        <div id="delete" ng-click="$ctrl.removeEl($index)" title="{{'remove' | translate}}"></div>
     </div>
     <div ng-show="!($ctrl.textlist.length)">{{'noelements' | translate}}</div>
 </div>
