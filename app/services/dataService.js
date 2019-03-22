@@ -10,13 +10,12 @@ module.exports = function (app) {
     * @constructor
     */
    function dataService($interval) {
-      let array = [];
-      let interval;
+      this.array = [];
       let isAllRed = true;
-      let checkColors = () => {
+      this.checkColors = () => {
          let allRed = true;
          let time = new Date();
-         _.forEach(array, function (element) {
+         _.forEach(this.array, function (element) {
             if (element.color === "red") {
                return;
             }
@@ -32,9 +31,6 @@ module.exports = function (app) {
          });
          isAllRed = allRed;
       }
-      this.getArray = () => {
-         return array;
-      }
       /**
        * Функция для добавления обьекта в массив. Генерирует обьект с текстом, который приходит параметром, с зеленым цветом и текущим временем.
        * 
@@ -46,16 +42,14 @@ module.exports = function (app) {
             time: new Date(),
             color: 'green'
          }
-         array.push(object);
-         start();
+         this.array.push(object);
       };
       /**
       * Функция сброса времени создания элемента
       */
       this.reset = (index) => {
-         array[index].color = "green";
-         array[index].time = new Date();
-         start();
+         this.array[index].color = "green";
+         this.array[index].time = new Date();
       }
       /**
        * Функция удаления обьекта из массива по id
@@ -63,28 +57,7 @@ module.exports = function (app) {
        * @param {number} - id обьекта в массиве
        */
       this.remove = (index) => {
-         array.splice(index, 1);
-      }
-      /**
-       * Возвращает текущее 
-       */
-      this.getRedMarker = () => {
-         return isAllRed;
-      }
-      /**
-       * Функция старта интервала с функцией проверки массива
-       */
-      let start = () => {
-         if (!angular.isDefined(interval)) {
-            isAllRed = false;
-            interval = $interval(function () {
-               checkColors();
-               if (isAllRed) {
-                  $interval.cancel(interval);
-                  interval = undefined;
-               }
-            }, 1000)
-         }
+         this.array.splice(index, 1);
       }
    }
 }

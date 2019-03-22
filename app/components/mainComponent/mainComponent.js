@@ -6,13 +6,14 @@ module.exports = function (app) {
         templateUrl: "./components/mainComponent/mainComponent.html",
         controller: mainController
     })
-    function mainController(dataService) {
-        this.textlist = dataService.getArray();
+    function mainController(dataService, $interval) {
+        this.textlist = dataService.array;
         /**
         * Функция добавления элемента в массив.
         */
         this.push = () => {
             dataService.push(this.input);
+            startInterval();
         }
         /**
         * Функция изменения языка.
@@ -35,6 +36,20 @@ module.exports = function (app) {
         */
         this.reset = (index) => {
             dataService.reset(index);
+            startInterval();
         }
+        let interval;
+        let startInterval = () => {
+            if (!angular.isDefined(interval)) {
+               dataService.isAllRed = false;
+               interval = $interval(() => {
+                  dataService.checkColors();
+                  if (dataService.isAllRed) {
+                     $interval.cancel(interval);
+                     interval = undefined;
+                  }
+               }, 1000)
+            }
+         }
     }
 }
