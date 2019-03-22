@@ -12,6 +12,9 @@ module.exports = function (app) {
    function dataService($interval) {
       this.array = [];
       let isAllRed = true;
+       /**
+        * Функция обновления цветов элементов в массиве.
+        */
       this.checkColors = () => {
          let allRed = true;
          let time = new Date();

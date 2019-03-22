@@ -1,5 +1,5 @@
 module.exports = function (app) {
-    app.config(function ($translateProvider) {
+    app.config(($translateProvider) => {
         $translateProvider.useStaticFilesLoader({
             prefix: './languages/',
             suffix: '.json'

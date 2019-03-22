@@ -17,9 +17,6 @@
    width: 20px;
    display: inline-block;
 }
-#addbtn:hover {
-   background-color: gray;
-}
 #delete {
    width: 20px; /* Width of new image */
    height: 20px; /* Height of new image */

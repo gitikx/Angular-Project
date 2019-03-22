@@ -12,8 +12,10 @@ module.exports = function (app) {
         * Функция добавления элемента в массив.
         */
         this.push = () => {
-            dataService.push(this.input);
-            startInterval();
+            if (typeof this.input != "undefined" && this.input.length >= 3) {
+                dataService.push(this.input);
+                startInterval();
+            }
         }
         /**
         * Функция изменения языка.
@@ -39,17 +41,20 @@ module.exports = function (app) {
             startInterval();
         }
         let interval;
+        /**
+       * Функция запуска интервала.
+       */
         let startInterval = () => {
             if (!angular.isDefined(interval)) {
-               dataService.isAllRed = false;
-               interval = $interval(() => {
-                  dataService.checkColors();
-                  if (dataService.isAllRed) {
-                     $interval.cancel(interval);
-                     interval = undefined;
-                  }
-               }, 1000)
+                dataService.isAllRed = false;
+                interval = $interval(() => {
+                    dataService.checkColors();
+                    if (dataService.isAllRed) {
+                        $interval.cancel(interval);
+                        interval = undefined;
+                    }
+                }, 1000)
             }
-         }
+        }
     }
 }
