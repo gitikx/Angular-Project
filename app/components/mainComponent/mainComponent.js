@@ -1,49 +1,57 @@
 module.exports = function (app) {
+
     /**
      * Компонент, содржащий компоненты добавления и отображения строк.
      */
     app.component("mainComponent", {
-        templateUrl: "./components/mainComponent/mainComponent.html",
+        templateUrl: "./components/mainComponent/main.html",
         controller: mainController
     })
+
     function mainController(dataService, $interval) {
         this.textlist = dataService.array;
+        let interval;
+
         /**
         * Функция добавления элемента в массив.
         */
-        this.push = () => {
-            if (typeof this.input != "undefined" && this.input.length >= 3) {
-                dataService.push(this.input);
+        this.createObject = (input) => {
+            if (typeof input != "undefined" && input.length >= 3) {
+                dataService.push(input);
                 startInterval();
             }
         }
+
         /**
         * Функция изменения языка.
         */
         this.changeLanguage = () => {
             languageService.changeLanguage(this.language);
         }
+
         /** 
         * Функция удаления элемента из массива по индексу.
         * 
         * @param {Number} index - индекс элемента
         */
-        this.remove = (index) => {
+        this.removeObject = (index) => {
             dataService.remove(index);
         }
+
         /**
         * Функция обновления даты создания обьекта по индексу. Вызывает интервал для проверки состояния обьектов, если он еще не запущен.
         * 
         * @param {Number} index - индекс элемента
         */
-        this.reset = (index) => {
+
+        this.resetObject = (index) => {
             dataService.reset(index);
             startInterval();
         }
-        let interval;
+
         /**
-       * Функция запуска интервала.
-       */
+        * Функция запуска интервала.
+        */
         let startInterval = () => {
             if (!angular.isDefined(interval)) {
                 dataService.isAllRed = false;

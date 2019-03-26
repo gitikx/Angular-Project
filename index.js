@@ -8,6 +8,6 @@ require('./app/configs/translateConfig')(app);
 require('./app/services/languageService')(app);
 require('./app/services/dataService')(app);
 require('./app/components/mainComponent/mainComponent')(app);
-require('./app/components/adderComponent/addListComponent')(app);
-require('./app/components/listComponent/stringListComponent')(app);
+require('./app/components/inputComponent/inputComponent')(app);
+require('./app/components/outputComponent/outputComponent')(app);
 require('./app/filters/digitFilter')(app);

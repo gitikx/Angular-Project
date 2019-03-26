@@ -1,0 +1,9 @@
+<div class="divrepeat">
+    <div ng-repeat="object in $ctrl.textlist track by $id(object)" ng-init="sum = $$hashKey">
+        <div class="status" ng-style="{'background-color': object.color}"title="{{object.color | translate}}"></div>
+            <div class="outstring">{{object.label}}</div>
+        <div class="reset" title="{{'reset' | translate}}" ng-click="$ctrl.reset($index)"></div>
+        <div class="delete" ng-click="$ctrl.delete($index)" title="{{'remove' | translate}}"></div>
+    </div>
+    <div ng-if="!($ctrl.textlist.length)">{{'noelements' | translate}}</div>
+</div>

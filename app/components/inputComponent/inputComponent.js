@@ -1,32 +1,36 @@
 module.exports = function (app) {
-   app.component("addStringComponent", {
+   app.component("inputComponent", {
       bindings: {
-         push: '&',
-         input: '='
+         onCreate: '&'
       },
-      templateUrl: './components/adderComponent/add.html',
-      controller: addController
+      templateUrl: './components/inputComponent/input.html',
+      controller: inputCtrl
    });
+   
    /**
     * Конструктор контроллера добавления новых элементов в массив.
     * 
     * @constructor
     * @param {object} languageService - angular сервис работы с переводом текста
     */
-   function addController(languageService) {
-      this.language;
+   function inputCtrl(languageService) {
+      this.input;
       this.languages = languageService.languages;
+      this.currentLanguage = this.languages[1];
+      languageService.changeLanguage(this.currentLanguage);
+      
       /**
        * Вызывает функцию добавления элемента в массив.
        */
-      this.pushEl = () => {
-         this.push();
+      this.create = () => {
+         if(this.input != 0 && typeof this.input !== "undefined") this.onCreate({input : this.input});
       }
+
       /**
       * Функция изменения языка.
       */
       this.changeLanguage = () => {
-         languageService.changeLanguage(this.language);
+         languageService.changeLanguage(this.currentLanguage);
       }
    }
 };

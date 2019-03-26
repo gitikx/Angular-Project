@@ -1,4 +1,4 @@
-#outstring {
+.outstring {
    width: 600px;
    height: auto;
    display: inline-block;
@@ -7,29 +7,29 @@
    text-align: left;
    
 }
-#divrepeat {
+.divrepeat {
    width: 700px;
    max-height: 95vh;
    overflow: auto;
 }
-#status {
+.status {
    height: 20px;
    width: 20px;
    display: inline-block;
 }
-#delete {
+.delete {
    width: 20px; /* Width of new image */
    height: 20px; /* Height of new image */
    display: inline-block;
    background-image: url(~./resources/delete.png);
 }
-#reset{
+.reset{
    width: 20px;
    height: 20px;
    display: inline-block;
    background-image: url(~./resources/reset.png);
 }
-#inputform {
+.inputform {
    height: 5vh;
    width: 700px;
 }

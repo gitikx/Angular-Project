@@ -2,7 +2,7 @@
     "title": "Deutsch",
     "noelements": "Liste ist leer",
     "add": "Addieren",
-    "This string contains only symbols.": "Die Zeichenfolge enthält nur Zeichen.",
+    "onlystrings": "Die Zeichenfolge enthält nur Zeichen.",
     "green": "Frisch",
     "yellow": "Lain",
     "red": "Faul",

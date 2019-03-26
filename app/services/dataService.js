@@ -9,9 +9,10 @@ module.exports = function (app) {
     * Функция сервиса
     * @constructor
     */
-   function dataService($interval) {
+   function dataService($translate, $filter, languageService) {
       this.array = [];
       let isAllRed = true;
+      let digitFilter = $filter("digitFilter");
        /**
         * Функция обновления цветов элементов в массиве.
         */
@@ -43,12 +44,15 @@ module.exports = function (app) {
          var object = {
             text: input,
             time: new Date(),
-            color: 'green'
+            color: 'green',
+            label: digitFilter(input)
          }
          this.array.push(object);
       };
       /**
       * Функция сброса времени создания элемента
+      * 
+      * @param {number} - id обьекта в массиве
       */
       this.reset = (index) => {
          this.array[index].color = "green";

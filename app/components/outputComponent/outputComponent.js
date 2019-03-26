@@ -1,34 +1,39 @@
 module.exports = function (app) {
-   app.component("stringListComponent", {
+   app.component("outputComponent", {
       bindings: {
          textlist: '<',
-         remove: '&',
-         reset: '&'
+         onDelete: '&',
+         onReset: '&'
       },
-      templateUrl: './components/listComponent/stringList.html',
-      controller: listCtrl
+      templateUrl: './components/outputComponent/output.html',
+      controller: outputCtrl
    });
+
    /**
     * Регистрация контроллера для вывода обьектов.
     * 
     * @constructor
     */
-   function listCtrl() {
+
+   function outputCtrl() {
+
       /**
       * Функция сброса таймера элемента
       * 
       * @param {Number} index - индекс элемента
       */
-      this.resetEl = (index) => {
-         this.reset({ index: index });
+     this.language = 
+      this.reset = (index) => {
+         this.onReset({ index });
       }
+      
       /**
        * Функция удаления элемента из массива
        * 
        * @param {Number} index - индекс элемента
        */
-      this.removeEl = (index) => {
-         this.remove({ index: index });
+      this.delete = (index) => {
+         this.onDelete({ index });
       }
    }
 };

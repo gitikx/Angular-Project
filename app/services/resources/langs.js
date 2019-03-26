@@ -3,7 +3,7 @@ module.exports =
         title: "Engilsh",
         name: "en"
     }, {
-        title: "Русский",
+        title: "Руский",
         name: "ru"
     }, {
         title: "Deutsch",

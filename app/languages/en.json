@@ -2,7 +2,7 @@
     "title": "English",
     "noelements": "Array is empty!",
     "add": "Add",
-    "This string contains only symbols.": "String contains only symbols.",
+    "onlystrings": "String contains only symbols.",
     "green": "Fresh",
     "yellow": "Lain",
     "red": "Rotten",
