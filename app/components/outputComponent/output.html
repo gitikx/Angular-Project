@@ -1,5 +1,5 @@
 <div class="divrepeat">
-    <div ng-repeat="object in $ctrl.textlist track by $id(object)" ng-init="sum = $$hashKey">
+    <div ng-repeat="object in $ctrl.textlist track by $index">
         <div class="status" ng-style="{'background-color': object.color}"title="{{object.color | translate}}"></div>
             <div class="outstring">{{object.label}}</div>
         <div class="reset" title="{{'reset' | translate}}" ng-click="$ctrl.reset($index)"></div>

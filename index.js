@@ -1,3 +1,5 @@
+require("angular");
+require("angular-mocks");
 require('./app/styles/style.css');
 var angular = require("angular");
 require("angular-translate");

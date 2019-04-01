@@ -22,11 +22,10 @@ module.exports = function (app) {
       * 
       * @param {Number} index - индекс элемента
       */
-     this.language = 
       this.reset = (index) => {
          this.onReset({ index });
       }
-      
+
       /**
        * Функция удаления элемента из массива
        * 

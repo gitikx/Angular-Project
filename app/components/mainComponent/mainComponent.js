@@ -1,14 +1,13 @@
 module.exports = function (app) {
-
     /**
      * Компонент, содржащий компоненты добавления и отображения строк.
      */
     app.component("mainComponent", {
         templateUrl: "./components/mainComponent/main.html",
-        controller: mainController
+        controller: mainCtrl
     })
 
-    function mainController(dataService, $interval) {
+    function mainCtrl(dataService, $interval) {
         this.textlist = dataService.array;
         let interval;
 
@@ -16,8 +15,8 @@ module.exports = function (app) {
         * Функция добавления элемента в массив.
         */
         this.createObject = (input) => {
-            if (typeof input != "undefined" && input.length >= 3) {
-                dataService.push(input);
+            if (typeof input != "undefined") {
+                dataService.push(input);    
                 startInterval();
             }
         }

@@ -1,4 +1,5 @@
 module.exports = function (app) {
+   app.controller("inputCtrl", inputCtrl);
    app.component("inputComponent", {
       bindings: {
          onCreate: '&'
@@ -6,7 +7,7 @@ module.exports = function (app) {
       templateUrl: './components/inputComponent/input.html',
       controller: inputCtrl
    });
-   
+
    /**
     * Конструктор контроллера добавления новых элементов в массив.
     * 
@@ -15,15 +16,16 @@ module.exports = function (app) {
     */
    function inputCtrl(languageService) {
       this.input;
+      var ctrl = this;
       this.languages = languageService.languages;
       this.currentLanguage = this.languages[1];
       languageService.changeLanguage(this.currentLanguage);
-      
+
       /**
        * Вызывает функцию добавления элемента в массив.
        */
       this.create = () => {
-         if(this.input != 0 && typeof this.input !== "undefined") this.onCreate({input : this.input});
+         if (this.input != 0 && typeof this.input !== "undefined") ctrl.onCreate({ input: this.input });
       }
 
       /**

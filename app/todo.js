@@ -1,5 +1,7 @@
 //Ctrl+Shift+I Ubuntu
 //Shift+Alt+F Windows   
-//почему пропускает пустую строку
 
-//translate
+//тесты
+//lodash
+//переменные изменить
+//unit тесты

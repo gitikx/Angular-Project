@@ -9,13 +9,23 @@ module.exports = function (app) {
     * Функция сервиса
     * @constructor
     */
-   function dataService($translate, $filter, languageService) {
+   function dataService($filter) {
       this.array = [];
       let isAllRed = true;
       let digitFilter = $filter("digitFilter");
-       /**
-        * Функция обновления цветов элементов в массиве.
-        */
+
+      /**
+       * Смена языков обьектов
+       */
+      this.changeLanguage = () => {
+         _.forEach(this.array, function (element) {
+            element.label = digitFilter(element.text);
+         });
+      }
+
+      /**
+       * Функция обновления цветов элементов в массиве.
+       */
       this.checkColors = () => {
          let allRed = true;
          let time = new Date();
