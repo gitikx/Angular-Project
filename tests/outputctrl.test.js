@@ -1,4 +1,4 @@
-describe("Тест компонента вывода", function () {
+describe("Output controller test", function () {
     var ctrl;
     beforeEach(() => {
         module('firstApp');
@@ -7,20 +7,24 @@ describe("Тест компонента вывода", function () {
     beforeEach(inject(function (_$componentController_) {
         ctrl = _$componentController_('outputComponent', null, {
             onDelete: (index) => {
-                if (_.isNaN(index.index)) throw "не является числом";
+                return index.index;
             },
             onReset: (index) => {
-                if (_.isNaN(index.index)) throw "не является числом";
+               return index.index;
             }
         });
     }));
 
-    it('должен вернуть обьект с числовым значением поля index', function () {
-        ctrl.delete(123);
+    it('should be defined', function () {
+        expect(ctrl).toBeDefined();
+      });
+
+    it('should call onDelete function', function () {
+        expect(ctrl.delete(3)).toBe(3);
     });
 
 
-    it('должен вернуть обьект с числовым значением поля index', function () {
-        ctrl.reset(123);
+    it('should call onReset function', function () {
+        expect(ctrl.reset(3)).toBe(3);
     });
 });

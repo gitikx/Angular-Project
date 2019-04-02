@@ -24,9 +24,7 @@ module.exports = function (app) {
       /**
        * Вызывает функцию добавления элемента в массив.
        */
-      this.create = () => {
-         if (this.input != 0 && typeof this.input !== "undefined") ctrl.onCreate({ input: this.input });
-      }
+      this.create = () => ctrl.onCreate({ input: this.input });
 
       /**
       * Функция изменения языка.

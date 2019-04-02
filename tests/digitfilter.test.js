@@ -1,4 +1,4 @@
-describe("тест числового фильтра", function () {
+describe("Digit filter test", function () {
   var $filter;
   beforeEach(() => {
     module('firstApp');
@@ -9,13 +9,13 @@ describe("тест числового фильтра", function () {
     $filter = _$filter_;
   }));
 
-  it('возвращает "onlystrings" если в строке только символы', function () {
+  it('returns "onlystrings" if text contains only symbols', function () {
     var digitFilter = $filter('digitFilter');
     expect(digitFilter("какойтотекст")).toEqual("onlystrings");
   });
 
 
-  it('убирает символы из строки', function () {
+  it('removes all symbols from string', function () {
     var digitFilter = $filter('digitFilter');
     expect(true).toBe(!_.isNaN(digitFilter("текст23")));
   });

@@ -22,17 +22,14 @@ module.exports = function (app) {
       * 
       * @param {Number} index - индекс элемента
       */
-      this.reset = (index) => {
-         this.onReset({ index });
-      }
+      this.reset = (index) => this.onReset({ index });
 
       /**
        * Функция удаления элемента из массива
        * 
        * @param {Number} index - индекс элемента
        */
-      this.delete = (index) => {
-         this.onDelete({ index });
-      }
+      this.delete = (index) => this.onDelete({ index });
+
    }
 };

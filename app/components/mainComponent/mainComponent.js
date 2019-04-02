@@ -8,8 +8,9 @@ module.exports = function (app) {
     })
 
     function mainCtrl(dataService, $interval) {
+        let ctrl = this;
         this.textlist = dataService.array;
-        let interval;
+        ctrl.interval;
 
         /**
         * Функция добавления элемента в массив.
@@ -52,13 +53,13 @@ module.exports = function (app) {
         * Функция запуска интервала.
         */
         let startInterval = () => {
-            if (!angular.isDefined(interval)) {
+            if (!angular.isDefined(ctrl.interval)) {
                 dataService.isAllRed = false;
-                interval = $interval(() => {
+                ctrl.interval = $interval(() => {
                     dataService.checkColors();
                     if (dataService.isAllRed) {
-                        $interval.cancel(interval);
-                        interval = undefined;
+                        $interval.cancel(ctrl.interval);
+                        ctrl.interval = undefined;
                     }
                 }, 1000)
             }
