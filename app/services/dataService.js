@@ -11,7 +11,7 @@ module.exports = function (app) {
     */
    function dataService($filter) {
       this.array = [];
-      this.isAllRed = true;
+      this.allElementsRed = true;
       let digitFilter = $filter("digitFilter");
 
       /**
@@ -43,7 +43,7 @@ module.exports = function (app) {
                else allRed = false;
             }
          });
-         this.isAllRed = allRed;
+         this.allElementsRed = allRed;
       }
       /**
        * Функция для добавления обьекта в массив. Генерирует обьект с текстом, который приходит параметром, с зеленым цветом и текущим временем.

@@ -43,27 +43,27 @@ module.exports = function (app) {
         * 
         * @param {Number} index - индекс элемента
         */
-
         this.resetObject = (index) => {
             dataService.reset(index);
             startInterval();
         }
 
         /**
-        * Функция запуска интервала.
-        */
-
+         * Запуск функции проверки элементов в массиве
+         */
         let startInterval = () => {
             if (!angular.isDefined(ctrl.interval)) {
                 intervalFunction();
             };
         };
-
+        /**
+         * Функция проверки элементов в массиве
+         */
         let intervalFunction = () => {
-            dataService.isAllRed = false;
+            dataService.allElementsRed = false;
             dataService.checkColors();
             ctrl.interval = $timeout(() => {
-                if (dataService.isAllRed) {
+                if (dataService.allElementsRed) {
                     $timeout.cancel(ctrl.interval);
                     ctrl.interval = undefined;
                 }
