@@ -3,7 +3,7 @@ describe('my service test:', function () {
     beforeEach(function () {
         module('firstApp');
     });
-    
+
     beforeEach(inject(function (dataService) {
         service = dataService;
     }));

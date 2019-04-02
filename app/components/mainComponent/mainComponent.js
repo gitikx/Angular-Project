@@ -7,7 +7,7 @@ module.exports = function (app) {
         controller: mainCtrl
     })
 
-    function mainCtrl(dataService, $interval) {
+    function mainCtrl(dataService, $interval, $timeout) {
         let ctrl = this;
         this.textlist = dataService.array;
         ctrl.interval;
@@ -17,7 +17,7 @@ module.exports = function (app) {
         */
         this.createObject = (input) => {
             if (typeof input != "undefined") {
-                dataService.push(input);    
+                dataService.push(input);
                 startInterval();
             }
         }
@@ -52,17 +52,23 @@ module.exports = function (app) {
         /**
         * Функция запуска интервала.
         */
+
         let startInterval = () => {
             if (!angular.isDefined(ctrl.interval)) {
-                dataService.isAllRed = false;
-                ctrl.interval = $interval(() => {
-                    dataService.checkColors();
-                    if (dataService.isAllRed) {
-                        $interval.cancel(ctrl.interval);
-                        ctrl.interval = undefined;
-                    }
-                }, 1000)
-            }
-        }
+                intervalFunction();
+            };
+        };
+
+        let intervalFunction = () => {
+            dataService.isAllRed = false;
+            dataService.checkColors();
+            ctrl.interval = $timeout(() => {
+                if (dataService.isAllRed) {
+                    $timeout.cancel(ctrl.interval);
+                    ctrl.interval = undefined;
+                }
+                else intervalFunction();
+            }, 1000)
+        };
     }
 }
