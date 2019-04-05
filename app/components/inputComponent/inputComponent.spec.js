@@ -1,5 +1,5 @@
 describe("Input component test", function () {
-  var ctrl, $componentController;
+  let ctrl, $componentController;
   beforeEach(() => {
     module('firstApp');
   });

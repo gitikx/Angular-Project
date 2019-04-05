@@ -1,5 +1,5 @@
 describe("Output controller test", function () {
-    var ctrl, $componentController;
+    let ctrl, $componentController;
     beforeEach(() => {
         module('firstApp');
     });

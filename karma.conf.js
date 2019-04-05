@@ -14,8 +14,10 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'app/scripts/bundle.js',
-      'tests/*.js'
+      './app/scripts/bundle.js',
+      './app/components/*/*.spec.*',
+      './app/filters/*.spec.*',
+      './app/services/*.spec.*'
     ],
 
     exclude: [
@@ -28,7 +30,7 @@ module.exports = function (config) {
     preprocessors: {
     },
 
-    reporters: ['kjhtml'],
+    reporters: ['progress'],
 
     coverageIstanbulReporter: {
       reports: ['html'],

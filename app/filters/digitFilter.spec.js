@@ -1,5 +1,5 @@
 describe("Digit filter test", function () {
-  var $filter;
+  let $filter;
   beforeEach(() => {
     module('firstApp');
   });

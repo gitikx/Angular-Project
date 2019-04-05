@@ -1,5 +1,5 @@
 describe('Language service test:', function () {
-    var service;
+    let service;
     beforeEach(function () {
         module('firstApp');
     });
