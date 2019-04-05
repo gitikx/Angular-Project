@@ -1,30 +1,29 @@
 describe("Output controller test", function () {
-    var ctrl;
+    var ctrl, $componentController;
     beforeEach(() => {
         module('firstApp');
     });
 
     beforeEach(inject(function (_$componentController_) {
-        ctrl = _$componentController_('outputComponent', null, {
-            onDelete: (index) => {
-                return index.index;
-            },
-            onReset: (index) => {
-               return index.index;
-            }
-        });
+        $componentController = _$componentController_;
     }));
 
-    it('should be defined', function () {
-        expect(ctrl).toBeDefined();
-      });
+    it('should call onDelete function of main controller', function () {
+        let onDeleteSpy = jasmine.createSpy('onDelete');
+        let bindings = {myString: {}, onDelete: onDeleteSpy};
+        ctrl = $componentController('outputComponent', null, bindings);
+        ctrl.delete(3);
 
-    it('should call onDelete function', function () {
-        expect(ctrl.delete(3)).toBe(3);
+        expect(onDeleteSpy).toHaveBeenCalledWith({index : 3});
     });
 
 
-    it('should call onReset function', function () {
-        expect(ctrl.reset(3)).toBe(3);
+    it('should call onReset function of main controller', function () {
+        let onResetSpy = jasmine.createSpy('onReset');
+        let bindings = {myString: {}, onReset: onResetSpy};
+        ctrl = $componentController('outputComponent', null, bindings);
+        ctrl.reset(3);
+
+        expect(onResetSpy).toHaveBeenCalledWith({index : 3});
     });
 });

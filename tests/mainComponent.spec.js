@@ -25,17 +25,10 @@ describe("Main controller test", function () {
         expect(ctrl.interval).toBeDefined();
     });
 
-    it('should create object calling create function of data service', function () {
+    it('should call service method while using method create', function () {
         expect(ctrl.textlist.length).toBe(0);
         ctrl.createObject("333");
         expect(ctrl.textlist.length).toBe(1);
-    });
-
-    it('should add element while calling create function', function () {
-        ctrl.createObject("333");
-        ctrl.textlist[0].color = "red";
-        ctrl.resetObject(0);
-        expect(ctrl.textlist[0].color).toBe("green");
     });
 
     it('should call reset function of data service', function () {

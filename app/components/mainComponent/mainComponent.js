@@ -7,7 +7,7 @@ module.exports = function (app) {
         controller: mainCtrl
     })
 
-    function mainCtrl(dataService, $interval, $timeout) {
+    function mainCtrl(dataService, $timeout) {
         let ctrl = this;
         this.textlist = dataService.array;
         ctrl.interval;

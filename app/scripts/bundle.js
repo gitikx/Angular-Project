@@ -170,7 +170,7 @@ eval("module.exports = function (app) {\n    /**\n     * Регистрация 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports =\n    langs = [{\n        title: \"Engilsh\",\n        name: \"en\"\n    }, {\n        title: \"Руский\",\n        name: \"ru\"\n    }, {\n        title: \"Deutsch\",\n        name: \"de\"\n    }]\n    ;\n\n//# sourceURL=webpack:///./app/services/resources/langs.js?");
+eval("module.exports =\n    langs = [{\n        title: \"Русский\",\n        name: \"ru\"\n    }, {\n        title: \"English\",\n        name: \"en\"\n    }, {\n        title: \"Deutsch\",\n        name: \"de\"\n    }]\n    ;\n\n//# sourceURL=webpack:///./app/services/resources/langs.js?");
 
 /***/ }),
 

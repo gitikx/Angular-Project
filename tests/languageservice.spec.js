@@ -1,4 +1,4 @@
-describe('my service test:', function () {
+describe('Language service test:', function () {
     var service;
     beforeEach(function () {
         module('firstApp');
@@ -13,7 +13,6 @@ describe('my service test:', function () {
     });
 
     it('languages should be initialized', function () {
-        expect(service.languages).toBeDefined();
-        expect(service.languages.length).not.toBe(0);
+        expect(service.languages).toEqual([{title:"Русский",name:"ru"},{title:"English",name:"en"},{title:"Deutsch",name:"de"}]);
     });
 });

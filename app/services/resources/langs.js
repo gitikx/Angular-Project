@@ -1,10 +1,10 @@
 module.exports =
     langs = [{
-        title: "Engilsh",
-        name: "en"
-    }, {
-        title: "Руский",
+        title: "Русский",
         name: "ru"
+    }, {
+        title: "English",
+        name: "en"
     }, {
         title: "Deutsch",
         name: "de"

@@ -1,22 +1,20 @@
 describe("Input component test", function () {
-  var ctrl;
+  var ctrl, $componentController;
   beforeEach(() => {
     module('firstApp');
   });
 
   beforeEach(inject(function (_$componentController_) {
-    ctrl = _$componentController_('inputComponent', null, {
-      onCreate: (text) => {
-        return true;
-      }
-    });
+    $componentController = _$componentController_;
   }));
 
-  it('should be defined', function () {
-    expect(ctrl).toBeDefined();
-  });
+  it('should call onCreate() function of main controller', function () {
+    let onCreateSpy = jasmine.createSpy('onCreate');
+    let bindings = { myString: {}, onCreate: onCreateSpy };
+    ctrl = $componentController('inputComponent', null, bindings);
+    ctrl.input = "345";
+    ctrl.create(3);
 
-  it('should call onCreate function', function () {
-    expect(ctrl.create()).toBe(true);
+    expect(onCreateSpy).toHaveBeenCalledWith({ input: "345" });
   });
 });

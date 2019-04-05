@@ -1,9 +1,10 @@
-describe('my service test:', function () {
+describe('Data service test', function () {
     var service;
+
     beforeEach(function () {
         module('firstApp');
     });
-
+    
     beforeEach(inject(function (dataService) {
         service = dataService;
     }));
@@ -12,12 +13,12 @@ describe('my service test:', function () {
         expect(service).toBeDefined();
     });
 
-    it('array should be initialized', function () {
+    it('should initialize array', function () {
         expect(service.array).toBeDefined();
         expect(service.array.length).toBe(0);
     });
 
-    it('should add elemet', function () {
+    it('should add element', function () {
         service.push('333');
         expect(service.array.length).toBe(1);
     });
