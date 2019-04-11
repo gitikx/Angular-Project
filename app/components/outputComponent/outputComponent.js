@@ -5,7 +5,7 @@ module.exports = function (app) {
          onDelete: '&',
          onReset: '&'
       },
-      templateUrl: './components/outputComponent/output.html',
+      templateUrl: 'components/outputComponent/output.html',
       controller: outputCtrl
    });
 

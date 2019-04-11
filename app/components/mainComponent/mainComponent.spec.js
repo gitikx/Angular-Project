@@ -1,12 +1,40 @@
 describe("Main controller test", function () {
-    let ctrl, $componentController;
+    let ctrl, $componentController, $rootScope, $compile, element;
     beforeEach(() => {
         module('firstApp');
     });
 
-    beforeEach(inject(function (_$componentController_) {
+    beforeEach(() => {
+        module('components/mainComponent/main.html');
+        module('components/inputComponent/input.html');
+        module('components/outputComponent/output.html');
+    });
+
+    beforeEach(inject(function (_$componentController_, _$rootScope_, _$compile_, _$httpBackend_) {
+        _$httpBackend_.whenGET("./languages/en.json").respond({
+            "title": "English",
+            "noelements": "Array is empty!",
+            "add": "Add",
+            "onlystrings": "String contains only symbols.",
+            "green": "Fresh",
+            "yellow": "Lain",
+            "red": "Rotten",
+            "remove": "Remove",
+            "reset": "Reset"
+        });
+        $compile = _$compile_;
+        $rootScope = _$rootScope_;
         $componentController = _$componentController_;
+        element = $compile("<main-component></main-component>")($rootScope.$new());
+        $rootScope.$digest();
     }));
+
+    it('should show added element', function () {
+        element.find("input").controller("ngModel").$setViewValue('test3');
+        var button = element.find("button");
+        button.triggerHandler('click');
+        expect(element.html()).toContain('background-color');
+    });
 
     it('interval shouldnt be defined', function () {
         ctrl = $componentController('mainComponent');

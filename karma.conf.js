@@ -15,19 +15,30 @@ module.exports = function (config) {
     // list of files / patterns to load in the browser
     files: [
       './app/scripts/bundle.js',
-      './app/components/*/*.spec.*',
+      './app/services/*.spec.*',
       './app/filters/*.spec.*',
-      './app/services/*.spec.*'
+      './app/components/*/*.spec.*',
+      './app/components/inputComponent/*.html',
+      './app/components/outputComponent/*.html',
+      './app/components/mainComponent/*.html'
     ],
+    
 
     exclude: [
     ],
 
     client: {
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      clearContext: false
     },
 
     preprocessors: {
+      'app/components/outputComponent/*.html': ['ng-html2js'],
+      'app/components/inputComponent/*.html': ['ng-html2js'],
+      'app/components/mainComponent/*.html': ['ng-html2js']
+    },
+
+    ngHtml2JsPreprocessor: {
+      stripPrefix :'app/'
     },
 
     reporters: ['progress'],

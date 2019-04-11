@@ -1,11 +1,11 @@
 module.exports = function (app) {
-   app.controller("inputCtrl", inputCtrl);
    app.component("inputComponent", {
       bindings: {
          onCreate: '&'
       },
-      templateUrl: './components/inputComponent/input.html',
+      templateUrl: 'components/inputComponent/input.html',
       controller: inputCtrl
+
    });
 
    /**
