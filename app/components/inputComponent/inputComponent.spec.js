@@ -4,11 +4,9 @@ describe("Input component test", function () {
 
   beforeEach(() => {
     module('firstApp');
-    inject(function (_$compile_, _$rootScope_, _$httpBackend_, languageService, _$componentController_) {
-      componentCtrl = _$componentController_;
+    inject(function (_$compile_, _$rootScope_, _$httpBackend_, languageService) {
       langService = languageService;
       _$httpBackend_.whenGET("./languages/en.json").respond({
-
       });
       $rootScope = _$rootScope_;
       $scope = $rootScope.$new();

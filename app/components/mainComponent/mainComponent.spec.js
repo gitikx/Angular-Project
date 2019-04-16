@@ -1,18 +1,17 @@
 describe("Main controller test", function () {
-    let ctrl, $componentController, $rootScope, $compile, element, $scope;
+    let ctrl, $rootScope, $compile, element, $scope;
 
     beforeEach(() => {
         module('firstApp');
-        inject(function (_$componentController_, _$rootScope_, _$compile_, _$httpBackend_) {
+        inject(function (_$rootScope_, _$compile_, _$httpBackend_) {
             _$httpBackend_.whenGET("./languages/en.json").respond({
             });
             $compile = _$compile_;
             $rootScope = _$rootScope_;
             $scope = $rootScope.$new()
-            $componentController = _$componentController_;
             element = $compile("<main-component></main-component>")($scope);
             $scope.$digest();
-            ctrl = $componentController('mainComponent');
+            ctrl = element.controller('mainComponent');
         })
     });
 
@@ -37,7 +36,6 @@ describe("Main controller test", function () {
     });
 
     it('should call reset function of data service', function () {
-        ctrl = $componentController('mainComponent');
         ctrl.createObject("333");
         ctrl.textlist[0].color = "red";
         ctrl.resetObject(0);

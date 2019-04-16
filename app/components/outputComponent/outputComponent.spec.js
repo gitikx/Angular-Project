@@ -1,5 +1,5 @@
 describe("Output controller test", function () {
-    let ctrl, $scope;
+    let ctrl, $scope, $rootScope;
     beforeEach(() => {
         module('firstApp');
         inject(function (_$componentController_, _$rootScope_, _$compile_, dataService) {
@@ -8,7 +8,7 @@ describe("Output controller test", function () {
             $rootScope = _$rootScope_;
             $compile = _$compile_;
             $scope = $rootScope.$new();
-            element = $compile('<output-component class="output" textlist="$ctrl.textlist" on-delete="$ctrl.removeObject(index)" on-reset="$ctrl.resetObject(index)"></output-component>')($scope);
+            element = $compile('<output-component class="output" textlist="textlist" on-delete="removeObject(index)" on-reset="resetObject(index)"></output-component>')($scope);
             $rootScope.$digest();
             ctrl = element.controller('outputComponent');
         }
@@ -20,30 +20,31 @@ describe("Output controller test", function () {
     });
 
     it('should show elements if they exist', function () {
-        $scope.$ctrl = { textlist: "2" };
+        $scope.textlist = "2";
         $scope.$digest();
 
         expect(element.html()).toContain("title");
     });
 
     it('should call onDelete function of main controller', function () {
-        var spy = jasmine.createSpy("removeObject");
-        $scope.$ctrl = { textlist: "2", removeObject: spy };
+        $scope.removeObject = jasmine.createSpy("removeObject");
+        $scope.textlist = "2";
         $scope.$digest();
         var button = element.find('button');
         button.triggerHandler('click');
 
-        expect(spy).toHaveBeenCalledWith(0);
+        expect($scope.removeObject).toHaveBeenCalledWith(0);
     });
 
 
     it('should call onReset function of main controller', function () {
-        var spy = jasmine.createSpy("removeObject");
-        $scope.$ctrl = { textlist: "2", resetObject: spy };
+        $scope.textlist = "2";
+
+        $scope.resetObject = jasmine.createSpy("resetObject");
         $scope.$digest();
         var button = element.find('button');
         button.triggerHandler('click');
 
-        expect(spy).toHaveBeenCalledWith(0);
+        expect($scope.resetObject).toHaveBeenCalledWith(0);
     });
 });
