@@ -4,7 +4,7 @@ module.exports = function (app) {
      */
     app.service("languageService", langService);
 
-    function langService($translate,dataService) {
+    function langService($translate, dataService) {
         this.languages = require('./resources/langs');
 
         /**
@@ -13,7 +13,7 @@ module.exports = function (app) {
         * @param {languageObject} - обьект, содержащий значения языка(name, title) 
         */
         this.changeLanguage = (languageObject) => {
-            $translate.use(languageObject.name).then(()=>{dataService.changeLanguage()});
+            $translate.use(languageObject.name).then(() => { dataService.changeLanguage() });
         }
     }
 }

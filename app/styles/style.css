@@ -18,12 +18,20 @@
    display: inline-block;
 }
 .delete {
+   border-width: 0px;
+   background-color: white;
+   background-position: contain;
+   margin-top: 0px;
    width: 20px; /* Width of new image */
    height: 20px; /* Height of new image */
    display: inline-block;
    background-image: url(~./resources/delete.png);
 }
 .reset{
+   border-width: 0px;
+   background-color: white;
+   background-position: contain;
+   margin-top: 0px;
    width: 20px;
    height: 20px;
    display: inline-block;

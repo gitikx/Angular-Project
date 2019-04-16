@@ -3,18 +3,20 @@ module.exports = function (app) {
      * Компонент, содржащий компоненты добавления и отображения строк.
      */
     app.component("mainComponent", {
-        templateUrl: "components/mainComponent/main.html",
+        template: require('./mainComponent.html'),
         controller: mainCtrl
     })
-
+    
     function mainCtrl(dataService, $timeout) {
         let ctrl = this;
         this.textlist = dataService.array;
         ctrl.interval;
 
+        
         /**
         * Функция добавления элемента в массив.
         */
+       
         this.createObject = (input) => {
             if (typeof input != "undefined") {
                 dataService.push(input);
@@ -56,6 +58,7 @@ module.exports = function (app) {
                 intervalFunction();
             };
         };
+        
         /**
          * Функция проверки элементов в массиве
          */

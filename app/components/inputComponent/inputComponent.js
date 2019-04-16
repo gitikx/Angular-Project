@@ -3,11 +3,12 @@ module.exports = function (app) {
       bindings: {
          onCreate: '&'
       },
-      templateUrl: 'components/inputComponent/input.html',
+      template: require('./inputComponent.html'),
       controller: inputCtrl
 
    });
 
+   
    /**
     * Конструктор контроллера добавления новых элементов в массив.
     * 

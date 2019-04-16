@@ -1,5 +1,2 @@
 Ctrl+Shift+I Ubuntu
-Shift+Alt+F Windows   
-
-появился hashkey
-get запрос и template отличались ./
+Shift+Alt+F Windows

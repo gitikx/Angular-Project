@@ -5,7 +5,7 @@ module.exports = function (app) {
          onDelete: '&',
          onReset: '&'
       },
-      templateUrl: 'components/outputComponent/output.html',
+      template: require('./outputComponent.html'),
       controller: outputCtrl
    });
 
@@ -29,7 +29,7 @@ module.exports = function (app) {
        * 
        * @param {Number} index - индекс элемента
        */
+      
       this.delete = (index) => this.onDelete({ index });
-
    }
 };

@@ -3,11 +3,10 @@ describe('Language service test:', function () {
 
     beforeEach(function () {
         module('firstApp');
+        inject(function (languageService) {
+            service = languageService;
+        })
     });
-    
-    beforeEach(inject(function (languageService) {
-        service = languageService;
-    }));
 
     it('serice should be defined', function () {
         expect(service).toBeDefined();
@@ -16,4 +15,5 @@ describe('Language service test:', function () {
     it('languages should be initialized', function () {
         expect(service.languages).toEqual([{title:"Русский",name:"ru"},{title:"English",name:"en"},{title:"Deutsch",name:"de"}]);
     });
+
 });

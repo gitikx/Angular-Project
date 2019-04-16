@@ -3,11 +3,10 @@ describe('Data service test', function () {
 
     beforeEach(function () {
         module('firstApp');
+        inject(function (dataService) {
+            service = dataService;
+        })
     });
-    
-    beforeEach(inject(function (dataService) {
-        service = dataService;
-    }));
 
     it('dataService should be defined', function () {
         expect(service).toBeDefined();
@@ -26,6 +25,7 @@ describe('Data service test', function () {
     it('should delete element', function () {
         service.push('333');
         service.remove(0);
+
         expect(service.array.length).toBe(0);
     });
 
@@ -33,6 +33,7 @@ describe('Data service test', function () {
         service.push('333');
         service.array[0].color = "red";
         service.reset(0);
+
         expect(service.array[0].color).toBe("green");
     });
 
@@ -42,6 +43,7 @@ describe('Data service test', function () {
         time.setSeconds(time.getSeconds() - 30);
         service.array[0].time = time;
         service.checkColors();
+
         expect(service.array[0].color).toBe("yellow");
     });
 
@@ -51,6 +53,7 @@ describe('Data service test', function () {
         service.push('333');
         service.array[0].time = time;
         service.checkColors();
+        
         expect(service.array[0].color).toBe("red");
     });
 });
