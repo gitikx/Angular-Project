@@ -12,4 +12,5 @@ require('./app/services/dataService')(app);
 require('./app/components/mainComponent/mainComponent')(app);
 require('./app/components/inputComponent/inputComponent')(app);
 require('./app/components/outputComponent/outputComponent')(app);
+require('./app/components/settingComponent/settingComponent')(app);
 require('./app/filters/digitFilter')(app);

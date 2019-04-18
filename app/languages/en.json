@@ -7,5 +7,8 @@
     "yellow": "Lain",
     "red": "Rotten",
     "remove": "Remove",
-    "reset": "Reset"
+    "reset": "Reset",
+    "chooselang" : "Choose language",
+    "entername" : "Enter your name",
+    "hello" : "Hello"
 }

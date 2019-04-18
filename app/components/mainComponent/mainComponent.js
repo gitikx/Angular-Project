@@ -6,17 +6,23 @@ module.exports = function (app) {
         template: require('./mainComponent.html'),
         controller: mainCtrl
     })
-    
+
     function mainCtrl(dataService, $timeout) {
         let ctrl = this;
-        this.textlist = dataService.array;
         ctrl.interval;
+        this.textlist = dataService.array;
+        this.settingDisplay = "none";
+        this.welcome = "Anomym";
 
-        
+        this.display = () => {
+              this.settingDisplay = "block";
+
+        }
+
         /**
         * Функция добавления элемента в массив.
         */
-       
+
         this.createObject = (input) => {
             if (typeof input != "undefined") {
                 dataService.push(input);
@@ -58,7 +64,7 @@ module.exports = function (app) {
                 intervalFunction();
             };
         };
-        
+
         /**
          * Функция проверки элементов в массиве
          */

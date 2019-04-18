@@ -1,8 +1,12 @@
-<div class="fon">d</div>
-<center>
+<setting-component display="$ctrl.settingDisplay" name="$ctrl.welcome"></setting-component>
+<div class="center">
+    <div class="hello"><span translate="hello"></span> {{$ctrl.welcome}}!</div>
     <form class="inputform">
         <input-component class="inputline" on-create="$ctrl.createObject(input)"></input-component>
-        <output-component class="output" textlist="$ctrl.textlist" on-delete="$ctrl.removeObject(index)"
-            on-reset="$ctrl.resetObject(index)"></output-component>
+        <button class="setting" ng-click="$ctrl.display()">Settings</button>
     </form>
+</div>
+<center>
+    <output-component class="output" textlist="$ctrl.textlist" on-delete="$ctrl.removeObject(index)"
+        on-reset="$ctrl.resetObject(index)"></output-component>
 </center>

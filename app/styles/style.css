@@ -7,9 +7,20 @@
    text-align: left;
 }
 
+.set {
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 300px;
+   width: 400px;
+   height: 400px;
+   background-color: white;
+   border-radius: 40px;
+}
+
 .divrepeat {
    width: 700px;
-   max-height: 95vh;
+   margin-top: 0px;
+   max-height: 94vh;
    overflow: auto;
 }
 
@@ -22,9 +33,10 @@
 body {
    margin-left: 0%;
    margin-top: 0%;
+   overflow: hidden;
 }
 
-.fon {
+.back {
    margin-top: 0%;
    height: 100%;
    width: 100%;
@@ -46,6 +58,18 @@ body {
    background-image: url(~./resources/delete.png);
 }
 
+.center {
+   margin-left: auto;
+   margin-right: auto;
+   max-width: 20%;
+}
+
+.setting{
+   margin-left: auto;
+   margin-right:auto;
+   display: inline; 
+}
+
 .reset {
    border-width: 0px;
    background-color: white;
@@ -57,7 +81,46 @@ body {
    background-image: url(~./resources/reset.png);
 }
 
+.labelname{
+   font-weight: bold;
+   position: absolute;
+   width: 400px;
+   text-align: center; 
+   font-size: 18px; 
+   margin-top: 60px; 
+}
+
+.lang {
+   font-weight: bold;
+   position: relative;
+   text-align: center;
+   display: block;
+   font-size: 18px;
+   margin-top: 100px; 
+}
+
+.hello {
+   text-align: center;
+   font-weight: bold;
+}
+.okbutton{
+   margin-top: 4px;
+   font-size: 18px; 
+}
+
+.inputname {
+   border-top-width: 0px;
+   border-left-width: 0px;
+   border-right-width: 0px;
+   border-bottom-width: 5px;
+   font-size: 20px;
+   text-align: center;
+   margin-left: 50px;
+   margin-top: 100px;
+}
+
 .inputform {
-   height: 5vh;
+   height: 2%;
    width: 700px;
+   display: inline-block; 
 }
