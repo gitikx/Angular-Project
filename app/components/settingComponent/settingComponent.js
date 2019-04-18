@@ -22,9 +22,7 @@ module.exports = function (app) {
             if (this.input != "" && !_.isUndefined(this.input)) {
                 this.name = this.input;
                 this.display = "none";
-
             }
-
         }
 
         /**

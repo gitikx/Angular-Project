@@ -1,7 +1,8 @@
+<list-filter-component text="$ctrl.searchText" color="$ctrl.searchColor"></list-filter-component>
 <div class="divrepeat">
-    <div ng-repeat="object in $ctrl.textlist track by $index">
-        <div class="status" ng-style="{'background-color': object.color}"title="{{object.color | translate}}"></div>
-            <div class="outstring">{{object.label}}</div>
+    <div ng-repeat="object in $ctrl.textlist | filter: {color : $ctrl.searchColor}| filter: {text : $ctrl.searchText} track by $index">
+        <div class="status" ng-style="{'background-color': object.color}" title="{{object.color | translate}}"></div>
+        <div class="outstring">{{object.label}}</div>
         <button class="reset" title="{{'reset' | translate}}" ng-click="$ctrl.reset($index)"></button>
         <button class="delete" ng-click="$ctrl.delete($index)" title="{{'remove' | translate}}"></button>
     </div>

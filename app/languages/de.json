@@ -10,5 +10,6 @@
     "reset": "Zurücksetzen",
     "chooselang" : "Wählen Sie eine Sprache",
     "entername" : "Geben Sie Ihren Namen ein",
-    "hello" : "Guten tag"
+    "hello" : "Guten tag",
+    "none" : "Nein"
 }

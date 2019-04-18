@@ -20,7 +20,7 @@
 .divrepeat {
    width: 700px;
    margin-top: 0px;
-   max-height: 94vh;
+   max-height: 90vh;
    overflow: auto;
 }
 
@@ -51,9 +51,7 @@ body {
    background-position: contain;
    margin-top: 0px;
    width: 20px;
-   /* Width of new image */
    height: 20px;
-   /* Height of new image */
    display: inline-block;
    background-image: url(~./resources/delete.png);
 }

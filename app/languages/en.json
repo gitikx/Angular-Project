@@ -10,5 +10,6 @@
     "reset": "Reset",
     "chooselang" : "Choose language",
     "entername" : "Enter your name",
-    "hello" : "Hello"
+    "hello" : "Hello",
+    "none" : "None"
 }
