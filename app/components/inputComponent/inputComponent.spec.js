@@ -27,11 +27,4 @@ describe("Input component test", function () {
     expect(spy).toHaveBeenCalledWith("test");
   });
 
-  it('should call languageService function on select changed', function () {
-    spyOn(langService, "changeLanguage");
-    element.find("select").controller("ngModel").$setViewValue({ title: 'Русский', name: 'ru' });
-
-    expect(langService.changeLanguage).toHaveBeenCalled();
-  })
-
 });

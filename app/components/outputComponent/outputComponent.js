@@ -15,7 +15,7 @@ module.exports = function (app) {
     * @constructor
     */
 
-   function outputCtrl($scope) {
+   function outputCtrl() {
 
       /**
       * Функция сброса таймера элемента
@@ -24,19 +24,11 @@ module.exports = function (app) {
       */
       this.reset = (index) => this.onReset({ index });
 
-      this.search;
       /**
        * Функция удаления элемента из массива
        * 
        * @param {Number} index - индекс элемента
        */
-
       this.delete = (index) => this.onDelete({ index });
-
-      $scope.myFilter = function (item) {
-         if (item.color == "red") {
-            return item;
-         }
-      };
    }
 };

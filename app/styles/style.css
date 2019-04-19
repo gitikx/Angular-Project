@@ -63,9 +63,14 @@ body {
 }
 
 .setting{
-   margin-left: auto;
+   margin-left: 25px;
    margin-right:auto;
-   display: inline; 
+   margin-top: 0px;
+   height: 30px;
+   width: 30px;
+   display: inline-block; 
+   background-image: url(~./resources/settings.png);
+   background-size: contain;
 }
 
 .reset {

@@ -33,6 +33,10 @@ module.exports = function (app) {
         label: "red",
         text: "red"
       }];
+
+    /**
+     * Вызывает функцию изменения цвета в фильтре.
+     */
     this.changeColor = () => {
       this.color = this.currentColor.text;
     }

@@ -1,4 +1,4 @@
-describe("Input component test", function () {
+describe("List filter component test", function () {
   var $compile, $rootScope, $scope, langService;
   var ctrl, element;
 
@@ -11,9 +11,14 @@ describe("Input component test", function () {
       $rootScope = _$rootScope_;
       $scope = $rootScope.$new();
       $compile = _$compile_;
-      element = $compile(' <input-component class="inputline" on-create="$ctrl.createObject(input)"></input-component>')($scope);
-      $rootScope.$digest();
-      ctrl = element.controller('inputComponent');
+      element = $compile(' <list-filter-component color="color"></list-filter-component>')($scope);
+      $scope.$digest();
     });
+  });
+
+  it('should change color on select', function () {
+    element.find("select").controller("ngModel").$setViewValue({ label: "green", text: 'green' });
+
+    expect($scope.color).toEqual("green");
   });
 });

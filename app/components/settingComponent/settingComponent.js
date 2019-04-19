@@ -18,6 +18,9 @@ module.exports = function (app) {
         languageService.changeLanguage(this.currentLanguage);
         this.input;
 
+        /**
+        * Функция закрытия диалога.
+        */
         this.hide = () => {
             if (this.input != "" && !_.isUndefined(this.input)) {
                 this.name = this.input;

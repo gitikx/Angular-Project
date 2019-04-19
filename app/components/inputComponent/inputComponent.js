@@ -7,7 +7,7 @@ module.exports = function (app) {
       controller: inputCtrl
 
    });
-  
+
    /**
     * Конструктор контроллера добавления новых элементов в массив.
     * 
