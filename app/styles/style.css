@@ -45,6 +45,20 @@ body {
    opacity: 0.7;
 }
 
+.exit {
+   border-width: 0px;
+   background-color: white;
+   background-position: contain;
+   margin-top: 0px;
+   width: 40px;
+   border-radius: 16px;
+   margin-left: 340px;
+   background-size: contain;
+   height: 40px;
+   display: inline-block;
+   background-image: url(~./resources/exit.png);
+}
+
 .delete {
    border-width: 0px;
    background-color: white;
@@ -62,13 +76,14 @@ body {
    max-width: 20%;
 }
 
-.setting{
+.setting {
+   border-width: 0px;
    margin-left: 25px;
-   margin-right:auto;
+   margin-right: auto;
    margin-top: 0px;
    height: 30px;
    width: 30px;
-   display: inline-block; 
+   display: inline-block;
    background-image: url(~./resources/settings.png);
    background-size: contain;
 }
@@ -84,13 +99,13 @@ body {
    background-image: url(~./resources/reset.png);
 }
 
-.labelname{
+.labelname {
    font-weight: bold;
    position: absolute;
    width: 400px;
-   text-align: center; 
-   font-size: 18px; 
-   margin-top: 60px; 
+   text-align: center;
+   font-size: 18px;
+   margin-top: 60px;
 }
 
 .lang {
@@ -99,23 +114,25 @@ body {
    text-align: center;
    display: block;
    font-size: 18px;
-   margin-top: 100px; 
+   margin-top: 100px;
 }
 
 .hello {
    text-align: center;
    font-weight: bold;
 }
-.okbutton{
+
+.cancelbutton {
    margin-top: 4px;
-   font-size: 18px; 
+   font-size: 18px;
+}
+
+.okbutton {
+   margin-top: 4px;
+   font-size: 18px;
 }
 
 .inputname {
-   border-top-width: 0px;
-   border-left-width: 0px;
-   border-right-width: 0px;
-   border-bottom-width: 5px;
    font-size: 20px;
    text-align: center;
    margin-left: 50px;
@@ -125,5 +142,5 @@ body {
 .inputform {
    height: 2%;
    width: 700px;
-   display: inline-block; 
+   display: inline-block;
 }

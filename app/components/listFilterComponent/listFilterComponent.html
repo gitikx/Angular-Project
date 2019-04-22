@@ -1,2 +1,4 @@
 <input type="text" ng-model="$ctrl.text">
-<select ng-options="color.label | translate for color in $ctrl.colors" ng-model="$ctrl.currentColor" ng-change="$ctrl.changeColor()"></select>
+<select ng-options="color.label | translate for color in $ctrl.colors" ng-model="$ctrl.currentColor" ng-change="$ctrl.changeColor()">
+        <option value="" ng-if="true">{{"none" | translate}}</option>
+</select>

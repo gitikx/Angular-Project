@@ -18,10 +18,6 @@ module.exports = function (app) {
   function listFilterCtrl() {
     this.colors = [
       {
-        label: "none",
-        text: ""
-      },
-      {
         label: "green",
         text: "green"
       },

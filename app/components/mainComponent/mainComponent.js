@@ -7,22 +7,21 @@ module.exports = function (app) {
         controller: mainCtrl
     })
 
-    function mainCtrl(dataService, $timeout) {
+    function mainCtrl(dataService, $timeout, languageService, $translate) {
         let ctrl = this;
         ctrl.interval;
         this.textlist = dataService.array;
-        this.settingDisplay = "none";
         this.welcome = "Anomym";
+        this.languages = languageService.languages;
+        this.currentLanguage = this.languages[0];
 
         this.display = () => {
-              this.settingDisplay = "block";
-
+            this.settingDisplay = true;
         }
 
         /**
         * Функция добавления элемента в массив.
         */
-
         this.createObject = (input) => {
             if (typeof input != "undefined") {
                 dataService.push(input);
@@ -33,8 +32,9 @@ module.exports = function (app) {
         /**
         * Функция изменения языка.
         */
-        this.changeLanguage = () => {
-            languageService.changeLanguage(this.language);
+        this.changeLanguage = (lang) => {
+            this.currentLanguage = lang;
+            languageService.changeLanguage(lang);
         }
 
         /** 

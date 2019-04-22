@@ -4,35 +4,36 @@ module.exports = function (app) {
      */
     app.component("settingComponent", {
         bindings: {
+            langs: '<',
             display: '=',
-            name: '='
+            name: '=',
+            onChange: '&',
+            current: '='
         },
         template: require('./settingComponent.html'),
         controller: settingCtrl
     })
 
-    function settingCtrl(languageService) {
-        this.display = "none";
-        this.languages = languageService.languages;
-        this.currentLanguage = this.languages[1];
-        languageService.changeLanguage(this.currentLanguage);
+    function settingCtrl() {
+        this.display = false;
         this.input;
-
         /**
         * Функция закрытия диалога.
         */
         this.hide = () => {
             if (this.input != "" && !_.isUndefined(this.input)) {
                 this.name = this.input;
-                this.display = "none";
+                this.onChange({ lang: this.current });
+                this.display = false;
             }
+        
         }
 
         /**
-        * Функция изменения языка.
-        */
-        this.changeLanguage = () => {
-            languageService.changeLanguage(this.currentLanguage);
+       * Функция закрытия диалога.
+       */
+        this.exit = () => {
+            this.display = false;
         }
     }
 }

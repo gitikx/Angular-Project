@@ -6,6 +6,7 @@ module.exports = function (app) {
 
     function langService($translate, dataService) {
         this.languages = require('./resources/langs');
+        $translate.use(this.languages[0].name);
 
         /**
         * Функция изменения языка.

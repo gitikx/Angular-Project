@@ -1,14 +1,15 @@
-<span class="back" ng-style="{'display': $ctrl.display}">
+<span class="back">
     <div class="set">
+        <button class="exit" ng-click="$ctrl.exit()"></button>
         <div class="labelname">{{'entername' | translate}}</div>
         <input class="inputname" type="text" ng-model="$ctrl.input">
         <div class="labelname">{{'chooselang' | translate}}</div>
         <center>
-            <select class="lang" ng-options="lang.title for lang in $ctrl.languages track by lang.name"
-                ng-model="$ctrl.currentLanguage" ng-change="$ctrl.changeLanguage()"></select>
+            <select class="lang" ng-options="lang.title for lang in $ctrl.langs track by lang.name" ng-model="$ctrl.current"></select>
+            </select>
             <button class="okbutton" ng-click="$ctrl.hide()">Ok</button>
+            <button class="cancelbutton" ng-click="$ctrl.exit()">Cancel</button>
         </center>
     </div>
-
     </div>
 </span>
