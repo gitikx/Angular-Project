@@ -45,6 +45,7 @@ module.exports = function (app) {
          });
          this.allElementsRed = allRed;
       }
+
       /**
        * Функция для добавления обьекта в массив. Генерирует обьект с текстом, который приходит параметром, с зеленым цветом и текущим временем.
        * 
@@ -59,6 +60,7 @@ module.exports = function (app) {
          }
          this.array.push(object);
       };
+
       /**
       * Функция сброса времени создания элемента
       * 
@@ -68,6 +70,7 @@ module.exports = function (app) {
          this.array[index].color = "green";
          this.array[index].time = new Date();
       }
+
       /**
        * Функция удаления обьекта из массива по id
        * 

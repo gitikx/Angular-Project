@@ -1,5 +1,5 @@
 <setting-component ng-if="$ctrl.settingDisplay" display="$ctrl.settingDisplay" name="$ctrl.welcome"
-    on-change="$ctrl.changeLanguage(lang)" langs="$ctrl.languages" current="$ctrl.currentLanguage"></setting-component>
+    on-change="$ctrl.changeSettings(lang, name)" langs="$ctrl.languages" current="$ctrl.currentLanguage"></setting-component>
 <div class="center">
     <div class="hello"><span translate="hello"></span> {{$ctrl.welcome}}!</div>
     <form class="inputform">

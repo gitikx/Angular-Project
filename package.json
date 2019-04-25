@@ -12,6 +12,7 @@
   "devDependencies": {
     "angular-mocks": "1.7.8",
     "css-loader": "2.1.1",
+    "html-loader": "0.5.5",
     "jasmine-core": "3.3.0",
     "karma": "4.0.1",
     "karma-chrome-launcher": "2.2.0",
@@ -21,11 +22,11 @@
     "style-loader": "0.23.1",
     "url-loader": "1.1.2",
     "webpack": "4.29.6",
-    "webpack-cli": "3.2.3"
+    "webpack-cli": "^3.2.3"
   },
   "scripts": {
     "start": "http-server",
-    "build": "webpack --mode='development' -w",
+    "build": "webpack --mode=development -w",
     "test": "karma start --reporters kjhtml"
   },
   "author": "gitik",

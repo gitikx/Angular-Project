@@ -2,7 +2,7 @@
     <div class="set">
         <button class="exit" ng-click="$ctrl.exit()"></button>
         <div class="labelname">{{'entername' | translate}}</div>
-        <input class="inputname" type="text" ng-model="$ctrl.input">
+        <input class="inputname" type="text" ng-model="$ctrl.name" value="1000">
         <div class="labelname">{{'chooselang' | translate}}</div>
         <center>
             <select class="lang" ng-options="lang.title for lang in $ctrl.langs track by lang.name" ng-model="$ctrl.current"></select>

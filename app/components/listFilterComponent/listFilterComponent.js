@@ -29,12 +29,26 @@ module.exports = function (app) {
         label: "red",
         text: "red"
       }];
-
-    /**
+      
+     /**
      * Вызывает функцию изменения цвета в фильтре.
      */
-    this.changeColor = () => {
+    this.clear = () => {
+      this.text = "";
+      this.color = "";
+      this.currentText = "";
+      this.currentColor = "";
+    }
+
+     /**
+     * Вызывает функцию изменения цвета в фильтре.
+     */
+    this.search = () => {
+      this.text = this.currentText;
       this.color = this.currentColor.text;
     }
+
+
+
   }
 };

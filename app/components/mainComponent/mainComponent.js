@@ -7,7 +7,7 @@ module.exports = function (app) {
         controller: mainCtrl
     })
 
-    function mainCtrl(dataService, $timeout, languageService, $translate) {
+    function mainCtrl(dataService, $timeout, languageService) {
         let ctrl = this;
         ctrl.interval;
         this.textlist = dataService.array;
@@ -32,9 +32,10 @@ module.exports = function (app) {
         /**
         * Функция изменения языка.
         */
-        this.changeLanguage = (lang) => {
+        this.changeSettings = (lang, name) => {
             this.currentLanguage = lang;
             languageService.changeLanguage(lang);
+            this.welcome = name;
         }
 
         /** 

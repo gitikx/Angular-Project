@@ -11,5 +11,8 @@
     "chooselang" : "Choose language",
     "entername" : "Enter your name",
     "hello" : "Hello",
-    "none" : "None"
+    "none" : "None",
+    "choosecolor" : "Choose color",
+    "filter" : "Filter",
+    "clear" : "Clear"
 }

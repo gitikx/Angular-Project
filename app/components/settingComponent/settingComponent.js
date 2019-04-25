@@ -6,9 +6,9 @@ module.exports = function (app) {
         bindings: {
             langs: '<',
             display: '=',
-            name: '=',
+            name: '<',
             onChange: '&',
-            current: '='
+            current: '<'
         },
         template: require('./settingComponent.html'),
         controller: settingCtrl
@@ -16,14 +16,13 @@ module.exports = function (app) {
 
     function settingCtrl() {
         this.display = false;
-        this.input;
+
         /**
         * Функция закрытия диалога.
         */
         this.hide = () => {
-            if (this.input != "" && !_.isUndefined(this.input)) {
-                this.name = this.input;
-                this.onChange({ lang: this.current });
+            if (this.name != "" && !_.isUndefined(this.name)) {
+                this.onChange({ lang: this.current, name: this.name });
                 this.display = false;
             }
         
