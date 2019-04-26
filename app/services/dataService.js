@@ -10,6 +10,7 @@ module.exports = function (app) {
     * @constructor
     */
    function dataService($filter) {
+      this.colors = require('./resources/colors')
       this.array = [];
       this.allElementsRed = true;
       let digitFilter = $filter("digitFilter");
@@ -30,16 +31,16 @@ module.exports = function (app) {
          let allRed = true;
          let time = new Date();
          _.forEach(this.array, function (element) {
-            if (element.color === "red") {
+            if (element.color === colors[3].colorCode) {
                return;
             }
             else {
                let timeOfExisting = (time - element.time) / 1000;
                if (timeOfExisting >= 30 && timeOfExisting <= 60) {
-                  element.color = "yellow";
+                  element.color = colors[2].colorCode;
                   allRed = false;
                }
-               else if (timeOfExisting > 60) element.color = "red";
+               else if (timeOfExisting > 60) element.color = colors[3].colorCode;
                else allRed = false;
             }
          });

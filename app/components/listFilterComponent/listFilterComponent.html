@@ -1,6 +1,5 @@
-<input type="text" ng-model="$ctrl.currentText">
-<select ng-options="color.label | translate for color in $ctrl.colors" ng-model="$ctrl.currentColor">
-        <option value=""></option>
+<input type="text" ng-model="$ctrl.text">
+<select ng-options="color.label | translate for color in $ctrl.colors" ng-model="$ctrl.color">
 </select>
 <div>
 <button ng-click="$ctrl.clear()"> {{"clear" | translate}}</button>

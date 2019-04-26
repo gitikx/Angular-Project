@@ -1,8 +1,7 @@
 module.exports = function (app) {
   app.component("listFilterComponent", {
     bindings: {
-      text: '=',
-      color: '='
+      onChange: '&'
     },
     template: require('./listFilterComponent.html'),
     controller: listFilterCtrl
@@ -18,6 +17,10 @@ module.exports = function (app) {
   function listFilterCtrl() {
     this.colors = [
       {
+        label: "",
+        text: ""
+      },
+      {
         label: "green",
         text: "green"
       },
@@ -29,23 +32,22 @@ module.exports = function (app) {
         label: "red",
         text: "red"
       }];
-      
-     /**
-     * Вызывает функцию изменения цвета в фильтре.
-     */
+    this.color = this.colors[0];
+
+    /**
+    * Вызывает функцию сброса параметров фильтра.
+    */
     this.clear = () => {
       this.text = "";
-      this.color = "";
-      this.currentText = "";
-      this.currentColor = "";
+      this.color = this.colors[0];
+      this.search();
     }
 
-     /**
-     * Вызывает функцию изменения цвета в фильтре.
-     */
+    /**
+    * Вызывает функцию изменения параметров фильтра.
+    */
     this.search = () => {
-      this.text = this.currentText;
-      this.color = this.currentColor.text;
+      this.onChange({ text: this.text, color: this.color })
     }
 
   }

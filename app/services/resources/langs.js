@@ -9,4 +9,4 @@ module.exports =
         title: "Deutsch",
         name: "de"
     }]
-    ;
+;

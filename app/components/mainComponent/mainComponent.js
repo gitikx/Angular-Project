@@ -11,9 +11,27 @@ module.exports = function (app) {
         let ctrl = this;
         ctrl.interval;
         this.textlist = dataService.array;
+
         this.welcome = "Anomym";
         this.languages = languageService.languages;
         this.currentLanguage = this.languages[0];
+        
+        this.settings = {
+            name: this.welcome,
+            langs: this.languages,
+            lang: this.currentLanguage
+        }
+
+        this.setting = (set) => {
+            this.currentLanguage = set.lang;
+            languageService.changeLanguage(this.currentLanguage);
+            this.welcome = set.name;
+            this.settingDisplay = false;
+        }
+
+        this.hideSettings = () => {
+            this.settingDisplay = false;
+        }
 
         this.display = () => {
             this.settingDisplay = true;
@@ -27,15 +45,6 @@ module.exports = function (app) {
                 dataService.push(input);
                 startInterval();
             }
-        }
-
-        /**
-        * Функция изменения языка.
-        */
-        this.changeSettings = (lang, name) => {
-            this.currentLanguage = lang;
-            languageService.changeLanguage(lang);
-            this.welcome = name;
         }
 
         /** 

@@ -1,4 +1,4 @@
-<list-filter-component text="$ctrl.searchText" color="$ctrl.searchColor"></list-filter-component>
+<list-filter-component on-change="$ctrl.submitFilter(text, color)"></list-filter-component>
 <div class="divrepeat">
     <div ng-repeat="object in $ctrl.textlist | filter: {color : $ctrl.searchColor}| filter: {text : $ctrl.searchText} track by $index">
         <div class="status" ng-style="{'background-color': object.color}" title="{{object.color | translate}}"></div>

@@ -16,7 +16,10 @@ module.exports = function (app) {
     */
 
    function outputCtrl() {
-
+      this.submitFilter = (text, color) => {
+          this.searchText = text;
+          this.searchColor = color.text;
+      }
       /**
       * Функция сброса таймера элемента
       * 

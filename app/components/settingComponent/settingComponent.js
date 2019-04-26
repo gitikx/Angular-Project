@@ -4,35 +4,22 @@ module.exports = function (app) {
      */
     app.component("settingComponent", {
         bindings: {
-            langs: '<',
-            display: '=',
-            name: '<',
-            onChange: '&',
-            current: '<'
+            config: '<',
+            onResolve: '&',
+            onCancel: '&'
         },
         template: require('./settingComponent.html'),
         controller: settingCtrl
     })
 
     function settingCtrl() {
-        this.display = false;
 
         /**
         * Функция применения настроек.
         */
         this.submit = () => {
-            if (this.name != "" && !_.isUndefined(this.name)) {
-                this.onChange({ lang: this.current, name: this.name });
-                this.display = false;
-            }
-        
+            this.onResolve({config : this.config});
         }
 
-        /**
-       * Функция закрытия диалога.
-       */
-        this.exit = () => {
-            this.display = false;
-        }
     }
 }

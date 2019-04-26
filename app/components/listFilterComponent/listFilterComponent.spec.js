@@ -13,7 +13,6 @@ describe("List filter component test", function () {
       $compile = _$compile_;
       element = $compile('<list-filter-component text="searchText" color="searchColor"></list-filter-component>')($scope);
       $scope.$digest();
-      var controller =  element.controller("listFilterComponent");
     });
   });
 
