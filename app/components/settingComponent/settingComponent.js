@@ -18,9 +18,9 @@ module.exports = function (app) {
         this.display = false;
 
         /**
-        * Функция закрытия диалога.
+        * Функция применения настроек.
         */
-        this.hide = () => {
+        this.submit = () => {
             if (this.name != "" && !_.isUndefined(this.name)) {
                 this.onChange({ lang: this.current, name: this.name });
                 this.display = false;

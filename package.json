@@ -27,7 +27,7 @@
   "scripts": {
     "start": "http-server",
     "build": "webpack --mode=development -w",
-    "test": "karma start --reporters kjhtml"
+    "test": "karma start"
   },
   "author": "gitik",
   "license": "ISC"

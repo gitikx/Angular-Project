@@ -48,7 +48,5 @@ module.exports = function (app) {
       this.color = this.currentColor.text;
     }
 
-
-
   }
 };

@@ -4,7 +4,7 @@ describe("Main controller test", function () {
     beforeEach(() => {
         module('firstApp');
         inject(function (_$rootScope_, _$compile_, _$httpBackend_) {
-            _$httpBackend_.whenGET("./languages/en.json").respond({
+            _$httpBackend_.whenGET("./languages/ru.json").respond({
             });
             $compile = _$compile_;
             $rootScope = _$rootScope_;
