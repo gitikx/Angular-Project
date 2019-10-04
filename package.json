@@ -2,7 +2,7 @@
   "name": "angular",
   "version": "1.0.0",
   "description": "My first app",
-  "main": "index.js",
+  "main": "index.js", 
   "dependencies": {
     "angular": " 1.7.8",
     "angular-translate": "2.18.1",
